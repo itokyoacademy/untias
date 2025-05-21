@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -448,7 +449,11 @@
             top: 0;
             z-index: 10; /* Ensure header is above content */
         }
-        td:nth-child(2), td:nth-child(3) { text-align: right; }
+        td:nth-child(2), td:nth-child(3) { text-align: right; } /* Original general rule */
+        /* Specific overrides for section headers if needed, but table-section-header class handles center alignment for its cells */
+        .table-section-header td { text-align: center !important; } /* Ensure this is effective for colspan cells */
+
+
         .sub-total-b { background-color: var(--neutral-light); font-weight: 600; }
         .table-section-header td { 
             background-color: var(--secondary-color) !important; 
@@ -1028,91 +1033,114 @@
                     <thead>
                         <tr>
                             <th>Description</th>
-                            <th>KOFU (JPY/INR)</th>
-                            <th>TOKYO (JPY/INR)</th>
+                            <th>KOFU</th>
+                            <th>TOKYO</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Expenses in India -->
                         <tr class="table-section-header">
-                            <td colspan="3"><i class="fas fa-plane-departure icon" aria-hidden="true"></i> Expenses in India (Pre-Departure, Curated by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</td>
-                        </tr>
-                    <tr>
-                    <td>Japanese Language Training (N5 + N4 Levels) & Study Materials <br><small>(Recommended by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</small></td>
-                    <td>Approx. ₹50,000 + 18% GST</td>
-                    <td>Approx. ₹50,000 + 18% GST</td>
-                    </tr>
-                    <tr>
-                    <td>Document Processing & Professional Services <br><small>(Provided by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</small></td>
-                    <td>Approx. ₹50,000 + 18% GST</td>
-                    <td>Approx. ₹50,000 + 18% GST</td>
-                    </tr>
-                    <tr>
-                        <td>One-Way Flight Ticket (Estimated)</td>
-                        <td>Approx. ₹50,000</td>
-                        <td>Approx. ₹50,000</td>
-                    </tr>
-                    <tr class="sub-total-b">
-                        <td><strong>Sub-Total (INR) - B</strong></td>
-                        <td><strong>₹150,000</strong></td>
-                        <td><strong>₹150,000</strong></td>
-                    </tr>
-
-                        <tr class="gst-notice-row">
-                            <td colspan="3">
-                                <i class="fas fa-percentage icon" aria-hidden="true"></i>
-                                <strong>IMPORTANT NOTICE:</strong> All fees in India will attract an additional GST of 18%.
-                            </td>
-                        </tr>
-                        <tr class="table-section-header">
-                            <td colspan="3"><i class="fas fa-yen-sign icon" aria-hidden="true"></i> Expenses in Japan (First Year - <strong class="iTokyo-Academy">iTokyo Academy</strong> Projection)</td>
+                            <td colspan="3"><i class="fas fa-rupee-sign icon" aria-hidden="true" style="margin-right: 5px;"></i><strong>Expenses in India (INR)</strong></td>
                         </tr>
                         <tr>
-                            <td>1 Year Course Fee (Single Payment - Approx. as per UNITAS)</td>
+                            <td>Japanese Language Training (N5 + N4) & Study Materials</td>
+                            <td>₹59,000 <small>(₹50,000 + 18% GST)</small></td>
+                            <td>₹59,000 <small>(₹50,000 + 18% GST)</small></td>
+                        </tr>
+                        <tr>
+                            <td>Document Processing & Professional Services</td>
+                            <td>₹59,000 <small>(₹50,000 + 18% GST)</small></td>
+                            <td>₹59,000 <small>(₹50,000 + 18% GST)</small></td>
+                        </tr>
+                        <tr>
+                            <td>One-Way Flight Ticket (Estimated)</td>
+                            <td>₹50,000</td>
+                            <td>₹50,000</td>
+                        </tr>
+                        <tr class="sub-total-b">
+                            <td><strong>Sub-Total (India - INR)</strong></td>
+                            <td><strong>₹168,000</strong></td>
+                            <td><strong>₹168,000</strong></td>
+                        </tr>
+
+                        <!-- Expenses in Japan -->
+                        <tr class="table-section-header">
+                            <td colspan="3"><i class="fas fa-yen-sign icon" aria-hidden="true" style="margin-right: 5px;"></i><strong>Expenses in Japan (JPY)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>1-Year Course Fee</td>
                             <td>740,000 JPY</td>
                             <td>800,000 JPY</td>
                         </tr>
                         <tr>
-                            <td>Monthly Living Expenses (x12 months, Guideline by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</td>
-                            <td>Approx. 960,000 JPY (80,000/month)</td>
-                            <td>Approx. 1,320,000 JPY (110,000/month)</td>
-                        </tr>
-                        <tr>
-                            <td>Sub-Total (JPY)</td>
-                            <td>1,700,000 JPY</td>
-                            <td>2,120,000 JPY</td>
+                            <td>Living Expenses (12 Months)</td>
+                            <td>960,000 JPY <small>(80,000/month)</small></td>
+                            <td>1,320,000 JPY <small>(110,000/month)</small></td>
                         </tr>
                         <tr class="sub-total-b">
-                            <td>Sub-Total (INR, @0.60 Exchange Rate) - A</td>
-                            <td>1,020,000 INR</td>
-                            <td>1,272,000 INR</td>
+                            <td><strong>Sub-Total (Japan - JPY)</strong></td>
+                            <td><strong>1,700,000 JPY</strong></td>
+                            <td><strong>2,120,000 JPY</strong></td>
+                        </tr>
+                        <tr style="font-weight: 600; background-color: var(--neutral-light);">
+                            <td>Converted to INR <small>(@ 1 JPY = 0.60 INR)</small></td>
+                            <td>₹1,020,000</td>
+                            <td>₹1,272,000</td>
+                        </tr>
+
+                        <!-- Total Expenses -->
+                         <tr class="table-section-header" style="background-color: var(--primary-color) !important; color: var(--light-text-color) !important;">
+                            <td colspan="3"><i class="fas fa-wallet icon" aria-hidden="true" style="margin-right: 5px; color: var(--secondary-color);"></i><strong>Total Estimated First-Year Expenses</strong></td>
                         </tr>
                         <tr class="total-expense-row">
-                            <td><i class="fas fa-wallet icon" aria-hidden="true"></i> Total Estimated First-Year Expense (INR) [A+B]</td>
-                            <td>1,170,000 INR</td>
-                            <td>1,422,000 INR</td>
+                            <td><strong>Total Expense (INR) <small>[India + Japan]</small></strong></td>
+                            <td><strong>₹1,188,000</strong></td>
+                            <td><strong>₹1,440,000</strong></td>
                         </tr>
+                        <tr style="font-weight: 700; background-color: #e9f5ff; color: var(--primary-color);">
+                            <td><strong>Total Expense (JPY equivalent)</strong></td>
+                            <td><strong>1,980,000 JPY</strong></td>
+                            <td><strong>2,400,000 JPY</strong></td>
+                        </tr>
+
+                        <!-- Part-Time Income -->
                         <tr class="table-section-header">
-                            <td colspan="3"><i class="fas fa-briefcase icon" aria-hidden="true"></i> Potential Part-Time Income (Student Work Permit Insights by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</td>
+                            <td colspan="3"><i class="fas fa-briefcase icon" aria-hidden="true" style="margin-right: 5px;"></i><strong>Potential Part-Time Income (Student Work Permit)</strong></td>
                         </tr>
                         <tr>
-                            <td>Typical Hourly Wage (Kofu: ~950 JPY | Tokyo: ~1150 JPY)</td>
+                            <td>Hourly Wage</td>
                             <td>~950 JPY/hr</td>
                             <td>~1150 JPY/hr</td>
                         </tr>
                         <tr>
-                            <td>Projected Monthly Income (Approx. 90-100 hours/month, max 28hrs/week)</td>
-                            <td>~85,500 - 95,000 JPY</td>
-                            <td>~103,500 - 115,000 JPY</td>
+                            <td>Projected Monthly Income <small>(90–100 hrs/month)</small></td>
+                            <td>85,500–95,000 JPY</td>
+                            <td>103,500–115,000 JPY</td>
                         </tr>
-                         <tr>
-                            <td>Projected Yearly Income (Approx. 10-11 months, practical estimate)</td>
-                            <td>~855,000 - 1,045,000 JPY</td>
-                            <td>~1,035,000 - 1,265,000 JPY</td>
+                        <tr>
+                            <td>Estimated Yearly Income <small>(10–11 months)</small></td>
+                            <td>855,000–1,045,000 JPY</td>
+                            <td>1,035,000–1,265,000 JPY</td>
                         </tr>
                         <tr class="total-income-row">
-                            <td><i class="fas fa-piggy-bank icon" aria-hidden="true"></i> Total Estimated First-Year Income (INR, @0.60)</td>
-                            <td>~513,000 - 627,000 INR</td>
-                            <td>~621,000 - 759,000 INR</td>
+                            <td><strong>Total Part-Time Income (INR @ 0.60)</strong></td>
+                            <td><strong>₹513,000 – ₹627,000</strong></td>
+                            <td><strong>₹621,000 – ₹759,000</strong></td>
+                        </tr>
+
+                        <!-- Net Balance -->
+                        <tr class="table-section-header" style="background-color: var(--accent-green) !important; color: var(--light-text-color) !important;">
+                             <td colspan="3"><i class="fas fa-calculator icon" aria-hidden="true" style="margin-right: 5px; color: var(--secondary-color);"></i><strong>Net Estimated Balance (After Part-Time Income)</strong></td>
+                        </tr>
+                        <tr style="font-weight: 700; background-color: #e6ffed;">
+                            <td>Net Estimated Cost (INR)</td>
+                            <td>₹561,000 – ₹675,000</td>
+                            <td>₹681,000 – ₹819,000</td>
+                        </tr>
+                        <tr style="font-weight: 700; background-color: #fff0f0;">
+                            <td>Net Estimated Cost (JPY)</td>
+                            <td>935,000 – 1,125,000 JPY</td>
+                            <td>1,135,000 – 1,365,000 JPY</td>
                         </tr>
                     </tbody>
                 </table>
