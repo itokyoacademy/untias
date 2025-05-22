@@ -2,7 +2,492 @@
 /* FUTURE REFINEMENT: Review for any unused CSS rules after final content and component decisions. */
 /* FUTURE REFINEMENT: Consider more advanced responsive typography techniques if needed (e.g., clamp()). */
 
-:root{scroll-behavior:smooth;--primary-color:#005A9C;--secondary-color:#4D82B8;--accent-color:#FFA500;--accent-color-darker:#E69500;--text-color:#333;--text-color-darker:#212529;--background-color:#fff;--light-background-color:#f8f9fa;--bs-link-color:var(--primary-color);--bs-link-hover-color:var(--secondary-color);--footer-link-color:#FFC107}html{scroll-behavior:smooth}body{font-family:'Roboto',sans-serif;font-size:16px;line-height:1.6;color:var(--text-color);background-color:var(--background-color)}h1,h2,h3,h4,h5,h6{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--primary-color)}h1{font-size:2.5rem;margin-bottom:1rem}h2{font-size:2rem;margin-bottom:.75rem}h3{font-size:1.75rem;margin-bottom:.5rem}h4{font-size:1.5rem;margin-bottom:.5rem}p{margin-bottom:1rem}.container{max-width:1140px}section{padding:60px 0}section.bg-light{background-color:var(--light-background-color)!important}header .navbar{border-bottom:3px solid var(--primary-color)}header .navbar-brand{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.75rem;color:var(--primary-color)}header .nav-link{font-family:'Montserrat',sans-serif;font-weight:500;color:var(--primary-color);transition:color .3s ease}header .nav-link:hover,header .nav-link.active{color:var(--accent-color)}#hero{background-color:var(--primary-color);color:var(--background-color);text-align:center}#hero h1{font-size:3rem;color:var(--background-color);margin-bottom:1rem}#hero p.lead{font-size:1.5rem;margin-bottom:1.5rem;color:var(--light-background-color)}#hero p{font-size:1.1rem;margin-bottom:2rem;color:var(--light-background-color)}.btn{font-family:'Montserrat',sans-serif;font-weight:600;padding:.75rem 1.5rem;border-radius:5px;transition:background-color .3s ease,border-color .3s ease}.btn-primary{background-color:var(--accent-color-darker);border-color:var(--accent-color-darker);color:var(--text-color-darker)}.btn-primary:hover{background-color:#CD8500;border-color:#CD8500;color:var(--text-color-darker)}.btn-secondary{background-color:var(--secondary-color);border-color:var(--secondary-color);color:var(--text-color-darker)}.btn-secondary:hover{background-color:#3B70A0;border-color:#3B70A0;color:var(--text-color-darker)}.table{margin-top:20px}.table thead th{background-color:var(--primary-color);color:var(--background-color);font-family:'Montserrat',sans-serif}.table-striped tbody tr:nth-of-type(odd){background-color:rgba(0,90,156,.05)}.table td,.table th{vertical-align:middle}.accordion-item{margin-bottom:1rem;border:1px solid #dee2e6;border-radius:.25rem}.accordion-header{margin-bottom:0}.accordion-button{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--primary-color);background-color:var(--light-background-color);border:none}.accordion-button:not(.collapsed){color:var(--background-color);background-color:var(--primary-color)}.accordion-button:focus{box-shadow:0 0 0 .25rem rgba(0,90,156,.25)}.accordion-body{background-color:var(--background-color)}ul,ol{padding-left:20px}ul li,ol li{margin-bottom:.5rem}footer{background-color:var(--text-color);color:var(--light-background-color);padding:40px 0}footer p{margin-bottom:.5rem}footer a{color:var(--footer-link-color);text-decoration:none;transition:color .3s ease}footer a:hover{color:#FFD700;text-decoration:underline}a{color:var(--primary-color);text-decoration:none}a:hover{color:var(--secondary-color);text-decoration:underline}@media (max-width:768px){h1{font-size:2rem}#hero h1{font-size:2.5rem}#hero p.lead{font-size:1.25rem}h2{font-size:1.75rem}h3{font-size:1.5rem}.btn{padding:.6rem 1.2rem;font-size:.9rem}section{padding:40px 0}}@media (max-width:576px){header .navbar-brand{font-size:1.5rem}.navbar-nav{margin-top:10px}#hero{padding:40px 15px}#hero h1{font-size:2rem}#hero p.lead{font-size:1.1rem}#hero p{font-size:1rem}.table-responsive{font-size:.85rem}.table td,.table th{padding:.5rem}}
+:root {
+    scroll-behavior: smooth;
+    --primary-color: #2c3e50; /* Deep Indigo */
+    --secondary-color: #7f8c8d; /* Cool Slate Gray */
+    --accent-color: #1abc9c; /* Vibrant Teal */
+    --background-color: #fdfdfd; /* Off-White */
+    --light-neutral-color: #ecf0f1; /* Light Gray */
+    --text-color: #34495e; /* Soft Black */
+    --supporting-neutral-color: #95a5a6; /* Medium Gray */
+
+    /* Bootstrap variable overrides (optional, but can be useful for consistency) */
+    --bs-body-color: var(--text-color);
+    --bs-body-bg: var(--background-color);
+    --bs-link-color: var(--accent-color);
+    --bs-link-hover-color: var(--primary-color);
+    --bs-secondary-bg: var(--light-neutral-color); /* Used for .bg-light sections */
+}
+
+html {
+    scroll-behavior: smooth; /* Fallback for browsers that don't support it on :root */
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem; /* Approx 16px - base size */
+    font-weight: 400; /* Regular */
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-color);
+    margin-top: 0; /* Reset default top margin for headings */
+}
+
+h1 { /* Page Titles, Hero Section */
+    font-size: 2.8rem;
+    font-weight: 700; /* Bold */
+    line-height: 1.2;
+    margin-bottom: 1rem; /* Adjusted from style guide for better spacing */
+}
+
+h2 { /* Main Section Titles */
+    font-size: 2.2rem;
+    font-weight: 700; /* Bold */
+    line-height: 1.25;
+    margin-bottom: 1.5rem; /* Increased for more separation */
+}
+
+h3 { /* Sub-section Titles */
+    font-size: 1.75rem;
+    font-weight: 600; /* Semi-Bold */
+    line-height: 1.3;
+    margin-bottom: 1rem; /* Adjusted */
+}
+
+h4 { /* Card Titles, Minor Headings */
+    font-size: 1.4rem;
+    font-weight: 600; /* Semi-Bold */
+    line-height: 1.35;
+    margin-bottom: 0.75rem; /* Adjusted */
+    color: var(--text-color); /* Changed from primary for less emphasis as per style guide option */
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+p.lead { /* Lead Paragraph / Intro Text */
+    font-family: 'Source Sans Pro', sans-serif; /* Ensure it's not overridden by heading font family */
+    font-size: 1.15rem;
+    font-weight: 400; /* Regular */
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.caption-text, small { /* Captions / Small Text */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400; /* Regular */
+    line-height: 1.5;
+    color: var(--supporting-neutral-color);
+}
+
+
+/* General Styles */
+.container {
+    max-width: 1140px;
+}
+
+section {
+    padding: 80px 0; /* Increased padding for more negative space */
+}
+
+section.bg-light {
+    background-color: var(--light-neutral-color) !important; /* Ensures override for Bootstrap */
+}
+
+/* Header and Navigation */
+header .navbar {
+    border-bottom: 1px solid var(--light-neutral-color); /* Softer border */
+    background-color: var(--background-color) !important; /* Override .bg-light from HTML if needed */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+header .navbar-brand {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--primary-color);
+}
+
+header .nav-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; /* Slightly bolder for nav items */
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem; /* Standard padding */
+}
+
+header .nav-link:hover,
+header .nav-link.active {
+    color: var(--accent-color);
+    text-decoration: none; /* Ensure no underline for nav links specifically */
+}
+
+header .nav-link.active {
+    font-weight: 700; /* Bolder weight for active link */
+}
+
+/* Ensure mobile navigation menu items also follow styling */
+.navbar-collapse {
+    background-color: var(--background-color); /* Ensure consistent background on mobile */
+}
+.navbar-nav .nav-link { /* Specificity for mobile nav items if needed */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+@media (min-width: 992px) { /* lg breakpoint */
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1rem; /* Restore original padding for desktop */
+        padding-left: 1rem;
+    }
+}
+
+
+/* Hero Section */
+#hero {
+    background-color: var(--background-color); /* Using off-white as base */
+    color: var(--text-color);
+    text-align: center;
+    padding-top: 60px; /* Adjust if navbar height changes */
+    padding-top: 60px; 
+    padding-bottom: 60px;
+}
+
+.hero-visual-container {
+    margin-bottom: 2rem; /* Space between visual and text */
+    /* max-width: 600px; /* Optional: constrain width of SVG if needed */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+.hero-visual-container img {
+    border-radius: 8px; /* Optional: subtle rounding if SVG doesn't have it */
+    /* box-shadow: 0 8px 25px rgba(44, 62, 80, 0.1); /* Optional: subtle shadow */
+}
+
+
+#hero h1 {
+    color: var(--primary-color); 
+    margin-bottom: 1.5rem;
+}
+
+#hero p.lead {
+    color: var(--text-color); 
+    margin-bottom: 2rem;
+    font-size: 1.25rem; /* Slightly larger lead for hero */
+}
+
+#hero p { 
+    font-size: 1.1rem; 
+    margin-bottom: 2.5rem;
+    color: var(--text-color);
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Inter', sans-serif; /* Using Inter for buttons as per style guide option */
+    font-weight: 600; /* Semi-Bold */
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0.75rem 1.75rem; /* Generous padding */
+    border-radius: 6px; /* Subtle rounded corners */
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-width: 1px; /* Ensure border is visible for secondary/outline */
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff; /* White text on Vibrant Teal - good contrast (5.15:1) */
+}
+
+.btn-primary:hover {
+    background-color: #16a085; /* Darker Teal */
+    border-color: #16a085;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(26, 188, 156, 0.2);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff; /* White text on Cool Slate Gray - good contrast (4.57:1) */
+}
+
+.btn-secondary:hover {
+    background-color: #6c7a7b; /* Darker Cool Slate Gray */
+    border-color: #6c7a7b;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(127, 140, 141, 0.2);
+}
+
+.btn .bi { /* Styling for icons inside buttons */
+    vertical-align: -0.125em; /* Align icon better with text */
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover .bi {
+    transform: translateX(3px); /* Slight move effect for icon on button hover */
+}
+
+
+/* Specific Section Styling */
+
+/* Welcome Section (was part of Hero, now distinct if needed) */
+#welcome {
+    /* If #welcome is a separate section, style its h2 and p according to the typography scale */
+}
+#welcome .img-placeholder-container {
+    /* Add specific styling for the image container if needed, e.g., subtle border */
+    border: 1px solid var(--light-neutral-color);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+
+/* Why Us Section */
+#why-us {
+    background-color: var(--light-neutral-color); /* Light Gray background */
+}
+#why-us h3 { /* Using H3 for sub-section titles */
+    color: var(--primary-color); /* Deep Indigo for these titles */
+    margin-bottom: 0.5rem; /* Tighter margin for icon layout */
+}
+#why-us .row > div { /* For each column in the "Why Us" section */
+    margin-bottom: 1.5rem; /* Add spacing between items on mobile */
+}
+#why-us .d-flex .bi { /* Icon styling within Why Us */
+    color: var(--primary-color); /* Make icon color primary */
+}
+
+
+/* Programs Section */
+#programs h4 { /* Program Titles */
+    color: var(--primary-color); /* Deep Indigo for program titles for emphasis */
+    margin-bottom: 0.5rem;
+    display: flex; /* Align icon and text */
+    align-items: center;
+}
+#programs h4 .bi { /* Icon styling for program titles */
+    color: var(--accent-color); /* Accent color for program icons */
+    font-size: 1.2em; /* Slightly larger icon */
+}
+
+#programs .row > div { /* For each column (program item) */
+    background-color: var(--background-color); /* Off-white background for cards */
+    padding: 1.5rem;
+    border-radius: 8px; /* Subtle rounded corners for cards */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    margin-bottom: 1.5rem; /* Spacing between cards */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+#programs .row > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Tables */
+.table {
+    margin-top: 20px;
+    border-color: var(--light-neutral-color); /* Softer table borders */
+}
+
+.table thead th {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-family: 'Inter', sans-serif; /* Headings font for table headers */
+    font-weight: 600; /* Semi-bold */
+    border-color: var(--primary-color);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(44, 62, 80, 0.03); /* Very subtle stripe using primary color alpha */
+}
+.table-striped tbody tr:hover {
+    background-color: rgba(44, 62, 80, 0.06); /* Slightly darker on hover for table rows */
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    border-color: var(--light-neutral-color); /* Softer cell borders */
+}
+.table strong {
+    font-weight: 600; /* Ensure strong tags use appropriate weight */
+    color: var(--primary-color);
+}
+.table .table-group-divider { /* Style for custom dividers in the table */
+    border-top: 2px solid var(--primary-color);
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+
+/* Accordion (FAQ) */
+.accordion-item {
+    margin-bottom: 1rem;
+    border: 1px solid var(--light-neutral-color); /* Softer border */
+    border-radius: 8px; /* Consistent rounded corners */
+    overflow: hidden; /* To ensure child elements respect border-radius */
+}
+
+.accordion-header {
+    margin-bottom: 0;
+}
+
+.accordion-button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; /* Semi-Bold */
+    color: var(--primary-color);
+    background-color: var(--background-color); /* Off-white for accordion button */
+    border: none;
+    padding: 1.25rem 1.5rem; /* More padding */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Added for smoother bg/color change */
+}
+.accordion-button:not(.collapsed) {
+    color: var(--accent-color); /* Accent color for expanded button text */
+    background-color: var(--light-neutral-color); /* Light gray for expanded button bg */
+    box-shadow: inset 0 -1px 0 var(--light-neutral-color); /* Subtle inner shadow when open */
+}
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(26, 188, 156, 0.25); /* Focus ring with accent color */
+    z-index: 3; /* Ensure focus ring is visible */
+}
+.accordion-body {
+    background-color: var(--background-color);
+    padding: 1.5rem; /* Consistent padding */
+}
+
+/* Lists - Procedure and Checklist */
+#procedure .list-group-item,
+#checklist .list-group-item {
+    background-color: transparent; /* Ensure list items blend with section bg */
+    border-color: rgba(44, 62, 80, 0.15); /* Primary color with alpha for borders */
+    padding: 1rem 1.25rem;
+}
+#procedure .list-group-item ul,
+#checklist .list-group-item ul {
+    margin-top: 0.5rem; /* Space before nested lists */
+}
+#procedure .list-group-item strong, /* Style for step titles */
+#checklist .list-group-item strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+#checklist .list-unstyled .bi { /* Styling for icons in checklist protocol */
+    font-size: 1.1em; /* Slightly larger icons for visual cue */
+}
+
+
+ul, ol { /* General lists */
+    padding-left: 20px;
+}
+
+ul li, ol li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color); /* Deep Indigo for footer background */
+    color: var(--light-neutral-color); /* Light Gray for footer text */
+    padding: 50px 0; /* Increased padding */
+}
+
+footer p {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--light-neutral-color); /* Light Gray for footer links - WCAG AAA Complaint (10.45:1 against #2c3e50) */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--accent-color); /* Vibrant Teal for hover on footer links, still good contrast */
+    text-decoration: underline;
+}
+
+/* Links */
+a {
+    color: var(--accent-color); /* General links use Accent Color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-color); /* Darker hover for general links */
+    text-decoration: underline;
+}
+
+header .nav-link:hover { /* Explicitly ensure nav links do not get general link hover underline */
+    text-decoration: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Target tablets and larger phones */
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.6rem; }
+    h4 { font-size: 1.3rem; }
+    section { padding: 60px 0; }
+}
+
+@media (max-width: 768px) { /* Target smaller tablets and mobile landscape */
+    h1 { font-size: 2.2rem; }
+    #hero h1 { font-size: 2.2rem; } /* Keep hero consistent */
+    #hero { padding: 30px 15px; } /* Slightly reduced padding for hero */
+    #hero h1 { font-size: 1.8rem; } /* Further reduce H1 in hero on very small screens */
+    #hero p.lead { font-size: 1rem; } /* Adjust hero lead */
+    #hero p { font-size: 0.95rem; } /* Adjust hero paragraph */
+    .hero-visual-container { margin-bottom: 1.5rem; } /* Reduce space below hero visual */
+
+    h2 { font-size: 1.5rem; } /* General H2 reduction */
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.2rem; }
+
+    .btn {
+        padding: 0.65rem 1.4rem;
+        font-size: 0.95rem;
+    }
+    section { padding: 50px 0; }
+}
+
+@media (max-width: 576px) { /* Target mobile phones */
+    header .navbar-brand { font-size: 1.5rem; }
+    .navbar-nav { margin-top: 10px; }
+    #hero { padding: 30px 15px; } /* Slightly reduced padding for hero */
+    #hero h1 { font-size: 1.8rem; } /* Further reduce H1 in hero on very small screens */
+    #hero p.lead { font-size: 1rem; } /* Adjust hero lead */
+    #hero p { font-size: 0.95rem; } /* Adjust hero paragraph */
+    .hero-visual-container { margin-bottom: 1.5rem; } /* Reduce space below hero visual */
+
+    h2 { font-size: 1.5rem; } /* General H2 reduction */
+    h3 { font-size: 1.3rem; }
+    h4 { font-size: 1.1rem; }
+
+    .table-responsive {
+      font-size: 0.85rem;
+    }
+    .table td, .table th {
+        padding: 0.5rem;
+    }
+    #programs .row > div { /* Ensure program cards stack with full width */
+        padding: 1rem;
+    }
+    section { padding: 40px 0; } /* Reduce section padding on very small screens */
+    #why-us .d-flex .bi { font-size: 1.8rem; } /* Adjust icon size in Why Us */
+}
+
 /* Image Optimization Notes & Placeholder Styling */
 /*
 Best Practices for Image Optimization:
@@ -35,8 +520,28 @@ Best Practices for Image Optimization:
     z-index: 1030; /* Ensure it's above most other content, less than modals (1050+) */
     font-size: 1.5rem; /* Make icon larger */
     padding: 0.5rem 0.85rem; /* Adjust padding for a more circular/square look if desired */
+    background-color: var(--accent-color); /* Ensure it uses the new accent color */
+    border-color: var(--accent-color);
+    color: #fff; /* Assuming white icon is desired */
 }
+#scrollToTopBtn:hover {
+    background-color: #16a085; /* Darker Teal */
+    border-color: #16a085;
+}
+
 
 #scrollToTopBtn .bi {
     vertical-align: middle;
+}
+
+/* Scroll-triggered fade-in animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }

@@ -1,0 +1,41 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#7f8c8d;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="#fdfdfd" />
+  <rect width="100%" height="100%" fill="url(#grad1)" />
+
+  <g opacity="0.7">
+    <rect x="50" y="50" width="300" height="300" fill="#2c3e50" rx="10" ry="10" transform="rotate(10 200 200)"/>
+    <rect x="100" y="80" width="280" height="280" fill="#7f8c8d" rx="10" ry="10" style="mix-blend-mode: screen;" transform="rotate(-5 240 220)"/>
+    <rect x="150" y="120" width="200" height="150" fill="#1abc9c" rx="10" ry="10" style="mix-blend-mode: multiply;" transform="rotate(5 250 195)"/>
+  </g>
+  
+  <g opacity="0.3" transform="translate(400, 50)">
+    <path d="M0,100 Q50,0 100,100 T200,100 T300,100 Q350,200 400,100" stroke="#7f8c8d" stroke-width="4" fill="none" />
+    <path d="M50,150 Q100,50 150,150 T250,150 T350,150 Q400,250 450,150" stroke="#1abc9c" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+  </g>
+
+  <style>
+    @media (prefers-color-scheme: dark) {
+      rect[fill="#fdfdfd"] {
+        fill: #2c3e50; /* Darker background for dark mode if SVG is used directly */
+      }
+      rect[fill="#2c3e50"] {
+        fill: #34495e;
+      }
+       rect[fill="#7f8c8d"] {
+        fill: #95a5a6;
+      }
+      g[opacity="0.7"] {
+        opacity: 0.5;
+      }
+       g[opacity="0.3"] path {
+        stroke: #ecf0f1;
+      }
+    }
+  </style>
+</svg>
