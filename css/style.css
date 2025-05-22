@@ -1,0 +1,42 @@
+/* FUTURE REFINEMENT: Consider organizing CSS into more specific files (e.g., _variables.scss, _components.scss) if using a preprocessor like SASS. */
+/* FUTURE REFINEMENT: Review for any unused CSS rules after final content and component decisions. */
+/* FUTURE REFINEMENT: Consider more advanced responsive typography techniques if needed (e.g., clamp()). */
+
+:root{scroll-behavior:smooth;--primary-color:#005A9C;--secondary-color:#4D82B8;--accent-color:#FFA500;--accent-color-darker:#E69500;--text-color:#333;--text-color-darker:#212529;--background-color:#fff;--light-background-color:#f8f9fa;--bs-link-color:var(--primary-color);--bs-link-hover-color:var(--secondary-color);--footer-link-color:#FFC107}html{scroll-behavior:smooth}body{font-family:'Roboto',sans-serif;font-size:16px;line-height:1.6;color:var(--text-color);background-color:var(--background-color)}h1,h2,h3,h4,h5,h6{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--primary-color)}h1{font-size:2.5rem;margin-bottom:1rem}h2{font-size:2rem;margin-bottom:.75rem}h3{font-size:1.75rem;margin-bottom:.5rem}h4{font-size:1.5rem;margin-bottom:.5rem}p{margin-bottom:1rem}.container{max-width:1140px}section{padding:60px 0}section.bg-light{background-color:var(--light-background-color)!important}header .navbar{border-bottom:3px solid var(--primary-color)}header .navbar-brand{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.75rem;color:var(--primary-color)}header .nav-link{font-family:'Montserrat',sans-serif;font-weight:500;color:var(--primary-color);transition:color .3s ease}header .nav-link:hover,header .nav-link.active{color:var(--accent-color)}#hero{background-color:var(--primary-color);color:var(--background-color);text-align:center}#hero h1{font-size:3rem;color:var(--background-color);margin-bottom:1rem}#hero p.lead{font-size:1.5rem;margin-bottom:1.5rem;color:var(--light-background-color)}#hero p{font-size:1.1rem;margin-bottom:2rem;color:var(--light-background-color)}.btn{font-family:'Montserrat',sans-serif;font-weight:600;padding:.75rem 1.5rem;border-radius:5px;transition:background-color .3s ease,border-color .3s ease}.btn-primary{background-color:var(--accent-color-darker);border-color:var(--accent-color-darker);color:var(--text-color-darker)}.btn-primary:hover{background-color:#CD8500;border-color:#CD8500;color:var(--text-color-darker)}.btn-secondary{background-color:var(--secondary-color);border-color:var(--secondary-color);color:var(--text-color-darker)}.btn-secondary:hover{background-color:#3B70A0;border-color:#3B70A0;color:var(--text-color-darker)}.table{margin-top:20px}.table thead th{background-color:var(--primary-color);color:var(--background-color);font-family:'Montserrat',sans-serif}.table-striped tbody tr:nth-of-type(odd){background-color:rgba(0,90,156,.05)}.table td,.table th{vertical-align:middle}.accordion-item{margin-bottom:1rem;border:1px solid #dee2e6;border-radius:.25rem}.accordion-header{margin-bottom:0}.accordion-button{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--primary-color);background-color:var(--light-background-color);border:none}.accordion-button:not(.collapsed){color:var(--background-color);background-color:var(--primary-color)}.accordion-button:focus{box-shadow:0 0 0 .25rem rgba(0,90,156,.25)}.accordion-body{background-color:var(--background-color)}ul,ol{padding-left:20px}ul li,ol li{margin-bottom:.5rem}footer{background-color:var(--text-color);color:var(--light-background-color);padding:40px 0}footer p{margin-bottom:.5rem}footer a{color:var(--footer-link-color);text-decoration:none;transition:color .3s ease}footer a:hover{color:#FFD700;text-decoration:underline}a{color:var(--primary-color);text-decoration:none}a:hover{color:var(--secondary-color);text-decoration:underline}@media (max-width:768px){h1{font-size:2rem}#hero h1{font-size:2.5rem}#hero p.lead{font-size:1.25rem}h2{font-size:1.75rem}h3{font-size:1.5rem}.btn{padding:.6rem 1.2rem;font-size:.9rem}section{padding:40px 0}}@media (max-width:576px){header .navbar-brand{font-size:1.5rem}.navbar-nav{margin-top:10px}#hero{padding:40px 15px}#hero h1{font-size:2rem}#hero p.lead{font-size:1.1rem}#hero p{font-size:1rem}.table-responsive{font-size:.85rem}.table td,.table th{padding:.5rem}}
+/* Image Optimization Notes & Placeholder Styling */
+/*
+Best Practices for Image Optimization:
+1.  Descriptive File Names: Use clear, descriptive names for image files (e.g., `itokyo-academy-logo.svg`, `unitas-campus-students.jpg`).
+2.  Choose the Right Format:
+    - JPEG: For photographs, complex images with gradients. Offers good compression.
+    - PNG: For images needing transparency (logos, icons) or sharp lines. Can be larger than JPEGs.
+    - SVG: For logos, icons, and simple vector graphics. Scales without quality loss.
+    - WebP: Modern format offering excellent compression and quality, supports transparency. Use with fallbacks for older browsers.
+3.  Compress Images:
+    - Use tools like TinyPNG/TinyJPG, ImageOptim, or Squoosh to reduce file size without significant quality loss.
+    - Aim for a balance between file size and visual quality.
+4.  Responsive Images:
+    - Use the `<picture>` element or the `srcset` and `sizes` attributes on `<img>` tags to serve different image sizes based on screen resolution and viewport width.
+    - Example: <img srcset="image-small.jpg 500w, image-medium.jpg 1000w, image-large.jpg 1500w" sizes="(max-width: 600px) 480px, 800px" src="image-medium.jpg" alt="Descriptive text">
+5.  Lazy Loading:
+    - Use the `loading="lazy"` attribute on `<img>` tags to defer loading of off-screen images until the user scrolls near them.
+6.  Alt Text:
+    - Always provide descriptive `alt` text for images for accessibility (screen readers) and SEO. If an image is purely decorative, use `alt=""`. For functional images, alt text should describe the function. For informative images, it should describe the information.
+*/
+.img-placeholder-container{margin-top:20px;margin-bottom:20px}
+
+/* Scroll-to-Top Button */
+/* FUTURE REFINEMENT: Add transition for fade-in/fade-out of the scroll-to-top button. */
+#scrollToTopBtn {
+    display: none; /* Initially hidden */
+    position: fixed; /* Already set by Bootstrap class, but good to have if not using Bootstrap classes */
+    bottom: 20px; /* Already set by Bootstrap class m-3 (margin) */
+    right: 20px; /* Already set by Bootstrap class m-3 (margin) */
+    z-index: 1030; /* Ensure it's above most other content, less than modals (1050+) */
+    font-size: 1.5rem; /* Make icon larger */
+    padding: 0.5rem 0.85rem; /* Adjust padding for a more circular/square look if desired */
+}
+
+#scrollToTopBtn .bi {
+    vertical-align: middle;
+}

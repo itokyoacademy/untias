@@ -1,1035 +1,143 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iTokyo Academy: Your Gateway to UNITAS Japan</title>
+    <title>iTokyo Academy - Your Gateway to UNITAS Japan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #005A9C; /* Deeper Professional Blue */
-            --secondary-color: #FFB81C; /* Vibrant Gold/Yellow */
-            --accent-green: #28a745; /* Clear Success Green */
-            --accent-orange: #fd7e14; /* Sharp Attention Orange */
-            --text-color: #212529; /* Darker, more standard text color */
-            --light-text-color: #f8f9fa;
-            --bg-color: #f9fafb; /* Slightly refined light gray */
-            --card-bg: #ffffff;
-            --border-color: #ced4da; /* Softer border color */
-            --table-header-bg: #eef2f7; /* Lighter table header */
-            --neutral-light: #f1f3f5;
-            --neutral-dark: #495057;
-            --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 8px rgba(0,0,0,0.07);
-            --shadow-lg: 0 10px 20px rgba(0,0,0,0.08);
-            --border-radius: 8px; /* Unified border radius */
-            --itokyo-brand-emphasis: var(--secondary-color); /* Renamed variable for clarity */
-            --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.75; /* Increased for readability */
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            font-size: 16px; /* Base font size for laptop */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden; /* Prevent horizontal scroll on body */
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1160px; /* Slightly narrower for better line lengths */
-            margin: 0 auto;
-            padding: 30px 0; /* Adjusted padding */
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 0.75em; /* Relative margin */
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        h1 { font-size: 2.6em; text-align: center; } /* Base h1 */
-        h2 {
-            font-size: 2.1em; /* Base h2 */
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 0.6em;
-            margin-top: 2.5em;
-            position: relative;
-            font-weight: 700;
-        }
-         h2::before {
-            content: '';
-            position: absolute;
-            top: -12px; /* Adjusted */
-            left: 0;
-            width: 70px;
-            height: 3px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        h3 { font-size: 1.6em; color: var(--primary-color); margin-top: 1.8em; font-weight: 600;}
-        h4 { font-size: 1.2em; color: var(--neutral-dark); margin-top: 1.5em; margin-bottom: 0.5em; font-weight: 600;}
-
-        p { margin-bottom: 1.2em; font-size: 1em; }
-        a { color: var(--primary-color); text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
-        a:hover { color: var(--secondary-color); text-decoration: underline; }
-        a:focus-visible { /* For keyboard navigation */
-            outline: 2px solid var(--secondary-color);
-            outline-offset: 2px;
-            border-radius: 2px; /* Optional: match link rounding if any */
-            text-decoration: underline; /* Ensure underline on focus if also on hover */
-        }
-
-        ul, ol { margin-bottom: 1.2em; padding-left: 25px; }
-        li { margin-bottom: 0.6em; }
-
-        strong.iTokyo-Academy { color: var(--primary-color); font-weight: 700; } /* Updated class name usage */
-        .itokyo-brand-text { color: var(--primary-color); font-weight: 600; }
-
-
-        /* --- Navigation (Air Bar Style) --- */
-        nav {
-            background-color: rgba(255, 255, 255, 0.85); /* Lighter, slightly transparent white */
-            backdrop-filter: blur(10px); /* Frosted glass effect */
-            -webkit-backdrop-filter: blur(10px); /* For Safari */
-            padding: 15px 0;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08); /* Softer, more diffused shadow */
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color); /* Optional: very subtle border */
-            width: 100%;
-            transition: var(--transition-standard);
-        }
-        nav.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 12px 0;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-        nav .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 90%;
-            max-width: 1160px;
-            margin: 0 auto;
-        }
-        
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 20px; /* Space between logo and phone */
-        }
-        nav .logo { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 1.5em; /* Slightly larger for brand name */
-            color: var(--primary-color); 
-            font-weight: 800; 
-            white-space: nowrap;
-            transition: var(--transition-standard);
-        }
-        nav.scrolled .logo {
-            font-size: 1.4em;
-        }
-        nav .logo .academy-name-tagline { /* Replaced .academy-name */
-            color: var(--secondary-color); 
-            font-weight: 600; 
-            font-size: 0.7em; 
-            display: block; 
-            line-height: 1.1;
-            transition: var(--transition-standard);
-            margin-top: 2px;
-        }
-        nav.scrolled .logo .academy-name-tagline {
-            font-size: 0.65em;
-        }
-        .nav-phone-main {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1em;
-            color: var(--accent-orange);
-            text-decoration: none;
-            white-space: nowrap;
-            padding: 5px 8px;
-            border-radius: 6px;
-            background-color: transparent; /* Default */
-            transition: var(--transition-standard);
-        }
-        .nav-phone-main:hover {
-            color: var(--light-text-color);
-            background-color: var(--accent-orange);
-            text-decoration: none;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            gap: 0 15px; /* Spacing between nav items */
-        }
-        nav ul li { margin: 0; } /* Margin handled by gap */
-        nav ul li a {
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 0.95em;
-            padding: 8px 10px;
-            border-radius: 6px;
-            position: relative;
-            transition: var(--transition-standard);
-            white-space: nowrap;
-        }
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            background-color: var(--secondary-color);
-            transition: var(--transition-standard);
-            transform: translateX(-50%);
-        }
-        nav ul li a:hover::after, nav ul li a.active::after {
-            width: 70%;
-        }
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        nav ul li a.active {
-            font-weight: 700;
-        }
-        
-        /* Mobile menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-size: 1.5em;
-            cursor: pointer;
-            padding: 5px;
-            transition: var(--transition-standard);
-        }
-        .mobile-menu-btn:hover {
-            color: var(--secondary-color);
-        }
-
-        /* --- Hero Header --- */
-        .hero-header {
-            background: linear-gradient(rgba(0, 70, 130, 0.85), rgba(0, 40, 90, 0.92)), url('https://images.pexels.com/photos/167682/pexels-photo-167682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover; /* Changed image for variety */
-            color: var(--light-text-color);
-            padding: 70px 20px 90px 20px;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%); /* More corporate angled bottom */
-        }
-        .hero-header h1 {
-            color: var(--light-text-color);
-            font-size: clamp(2.4em, 5vw + 1em, 3.4em); /* Fluid font size */
-            margin-bottom: 0.3em;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-            font-weight: 800;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s forwards 0.2s;
-        }
-        .hero-header .subtitle { /* Reused h2 class for styling consistency, but specific content */
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(1.2em, 3vw + 0.5em, 1.6em); /* Fluid font size */
-            color: var(--secondary-color);
-            margin-bottom: 1em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s forwards 0.4s;
-            border-bottom: none; /* Remove h2 default border */
-            padding-bottom: 0;
-            margin-top: 0;
-            text-align: center;
-        }
-        .hero-header .subtitle::before { display: none; } /* Remove h2 default pseudo-element */
-        .hero-header .subtitle strong.iTokyo-Academy-highlight { color: #fff; font-weight: 700; } /* Custom class for hero subtitle */
-        .hero-header p.tagline {
-            font-size: 1.15em;
-            color: #e0e0e0;
-            max-width: 750px;
-            margin: 0 auto 1.5em auto;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s forwards 0.6s;
-        }
-        .hero-cta {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 14px 35px; /* Larger CTA */
-            border-radius: 50px;
-            font-size: 1.15em;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition-standard);
-            box-shadow: var(--shadow-md);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s forwards 0.8s;
-        }
-        .hero-cta:hover {
-            background-color: #FFC745;
-            color: var(--primary-color);
-            text-decoration: none;
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: var(--shadow-lg);
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* --- Section Styling --- */
-        section {
-            padding: 40px 25px;
-            background-color: var(--card-bg);
-            margin-bottom: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(30px); /* Start slightly lower */
-            opacity: 0;
-        }
-        section.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        section:last-of-type { margin-bottom: 0; }
-
-        /* --- Welcome Section --- */
-        .welcome-section p {
-            font-size: 1.1em;
-            text-align: center;
-            max-width: 850px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--neutral-dark);
-        }
-        .welcome-section .itokyo-intro {
-            font-weight: 600;
-            color: var(--primary-color);
-            display: block;
-            margin-top: 0.8em;
-        }
-        
-        /* --- Why iTokyo Academy Section --- */
-        #why-itokyo .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 2em;
-        }
-        .benefit-item {
-            background-color: var(--neutral-light);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition-standard);
-        }
-        .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        .benefit-item .icon {
-            font-size: 2.8em;
-            color: var(--primary-color);
-            margin-bottom: 0.5em;
-            display: block;
-        }
-        .benefit-item h4 {
-            color: var(--primary-color);
-            font-size: 1.25em;
-            margin-bottom: 0.5em;
-        }
-        .benefit-item p {
-            font-size: 0.95em;
-            color: var(--neutral-dark);
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        /* --- Programs Section --- */
-        #programs .program-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-top: 1.5em;
-        }
-        .program-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            box-shadow: var(--shadow-xs);
-            transition: var(--transition-standard);
-        }
-        .program-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-sm);
-            border-color: var(--secondary-color);
-        }
-        .program-card .icon {
-            font-size: 1.8em;
-            color: var(--secondary-color);
-            margin-bottom: 0.4em;
-        }
-        .program-card h4 {
-            color: var(--primary-color);
-            font-size: 1.2em;
-            margin-top: 0;
-            margin-bottom: 0.5em;
-        }
-        .program-card p {
-            font-size: 0.9em;
-            color: var(--neutral-dark);
-            margin-bottom: 0.8em;
-        }
-        .program-cta {
-            display: block;
-            text-align: center;
-            margin-top: 2.5em;
-        }
-
-
-        /* --- Cost Table --- */
-        .cost-table-container { 
-            overflow-x: auto; 
-            margin: 0 -15px; 
-            padding: 0 15px; 
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) var(--neutral-light);
-        }
-        .cost-table-container::-webkit-scrollbar { height: 8px; }
-        .cost-table-container::-webkit-scrollbar-track { background: var(--neutral-light); border-radius: 4px; }
-        .cost-table-container::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 4px; }
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            margin-bottom: 1.5em; 
-            font-size: 0.95em; 
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden; /* For border-radius on table */
-        }
-        th, td { border: 1px solid var(--border-color); padding: 12px 15px; text-align: left; vertical-align: middle; }
-        th { 
-            background-color: var(--table-header-bg); 
-            font-weight: 700; 
-            font-family: 'Montserrat', sans-serif; 
-            color: var(--primary-color);
-            position: sticky; /* Sticky header for scrollable table */
-            top: 0;
-            z-index: 10; /* Ensure header is above content */
-        }
-        td:nth-child(2), td:nth-child(3) { text-align: right; } /* Original general rule */
-        /* Specific overrides for section headers if needed, but table-section-header class handles center alignment for its cells */
-        .table-section-header td { text-align: center !important; } /* Ensure this is effective for colspan cells */
-
-
-        .sub-total-b { background-color: var(--neutral-light); font-weight: 600; }
-        .table-section-header td { 
-            background-color: var(--secondary-color) !important; 
-            color: var(--primary-color); 
-            font-weight: 700; 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 1.1em; 
-            text-align: center !important; 
-            padding: 15px;
-        }
-        .total-expense-row td { 
-            background-color: var(--accent-green) !important; 
-            color: var(--light-text-color); 
-            font-weight: 700; 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 1.1em; 
-            padding: 15px;
-        }
-        .total-income-row td { 
-            background-color: #FFF3E0; 
-            font-weight: 700; 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 1.1em; 
-            color: var(--accent-orange);
-            padding: 15px;
-        }
-        .gst-notice-row td {
-            background: linear-gradient(135deg, var(--accent-orange) 0%, #FF8F00 100%); /* Vibrant orange gradient */
-            color: var(--light-text-color); /* Light text for contrast */
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.05em; /* Slightly larger for impact */
-            text-align: center !important;
-            padding: 15px 20px; /* Generous padding */
-            /* Override default table cell borders and add custom ones for distinction */
-            border: none; /* Remove default borders first */
-            border-top: 1px solid #E65100; /* Darker orange top border, creating separation */
-            border-bottom: 1px solid #E65100; /* Darker orange bottom border */
-        }
-        .gst-notice-row .icon {
-            margin-right: 10px;
-            font-size: 1.25em; /* Larger icon */
-            vertical-align: -3px; /* Adjust for better alignment with text */
-        }
-        .table-note { 
-            font-size: 0.9em; 
-            font-style: italic; 
-            text-align: center; 
-            margin-top: 1em; 
-            color: var(--neutral-dark); 
-            background-color: var(--neutral-light);
-            padding: 12px;
-            border-radius: var(--border-radius);
-        }
-        .table-note strong.iTokyo-Academy { font-style: normal; } /* Updated class name */
-
-
-        /* --- Procedure & Checklist common --- */
-        .callout-box {
-            background-color: #e9f5ff;
-            padding: 18px 22px;
-            border-left: 5px solid var(--primary-color);
-            border-radius: var(--border-radius);
-            margin: 1.8em 0;
-            box-shadow: var(--shadow-xs);
-            transition: var(--transition-standard);
-        }
-        .callout-box:hover {
-            box-shadow: var(--shadow-sm);
-            transform: translateY(-2px);
-        }
-        .callout-box p { margin-bottom: 0.6em; font-size: 1em;}
-        .callout-box strong { color: var(--primary-color); }
-        .callout-box.warning { background-color: #fff8e1; border-left-color: var(--secondary-color); }
-        .callout-box.warning strong { color: #795548; }
-
-        .highlight {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 3px 7px;
-            border-radius: 4px;
-            font-weight: 700;
-            display: inline-block;
-            line-height: 1.4;
-        }
-
-        /* --- Procedure Section --- */
-        .procedure-list { list-style: none; padding-left: 0; counter-reset: procedure-step; }
-        .procedure-list > li {
-            background-color: var(--card-bg);
-            padding: 22px 22px 22px 70px;
-            border: 1px solid #e0e0e0;
-            margin-bottom: 1.5em;
-            border-radius: var(--border-radius);
-            position: relative;
-            transition: var(--transition-standard);
-            box-shadow: var(--shadow-sm);
-        }
-        .procedure-list > li:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-        .procedure-list > li::before {
-            counter-increment: procedure-step;
-            content: counter(procedure-step);
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: linear-gradient(135deg, var(--primary-color), #0072c6);
-            color: var(--light-text-color);
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.3em;
-            box-shadow: var(--shadow-xs);
-            transition: var(--transition-standard);
-        }
-        .procedure-list > li:hover::before {
-            transform: translateY(-50%) scale(1.05);
-            box-shadow: var(--shadow-sm);
-        }
-        .procedure-list strong.step-title { display: block; font-size: 1.25em; color: var(--primary-color); margin-bottom: 0.6em; font-family: 'Montserrat', sans-serif; font-weight: 600; }
-        .procedure-list ul { margin-top: 0.8em; padding-left: 20px; list-style-type: disc; }
-        .procedure-list ul li { background-color: transparent; padding: 4px 0; border-left: none; margin-bottom: 4px; font-size: 0.95em; }
-        .procedure-list .icon, .section-title-icon { margin-right: 10px; color: var(--secondary-color); font-size: 1.1em; }
-        .sponsor-requirements { 
-            background-color: #fffaf2; 
-            border: 1px solid var(--secondary-color); 
-            padding: 18px; 
-            border-radius: var(--border-radius); 
-            margin-top: 1em;
-            transition: var(--transition-standard);
-        }
-        .sponsor-requirements:hover {
-            box-shadow: var(--shadow-sm);
-            transform: translateY(-2px);
-        }
-        .sponsor-requirements h4 { margin-top: 0; color: var(--primary-color); font-size: 1.1em;}
-
-
-        /* --- Checklist Section (Accordion) --- */
-        .checklist-intro p { font-size: 1.05em; margin-bottom: 0.8em; }
-        .accordion-item {
-            background-color: var(--card-bg);
-            margin-bottom: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            overflow: hidden; /* Keep for max-height transition */
-            box-shadow: var(--shadow-xs);
-            transition: var(--transition-standard);
-        }
-        .accordion-item:hover {
-            box-shadow: var(--shadow-sm);
-        }
-        .accordion-header {
-            background-color: var(--neutral-light);
-            padding: 15px 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid transparent; /* Initial state */
-            transition: var(--transition-standard);
-        }
-        .accordion-header:hover { background-color: #e2e6ea; }
-        .accordion-header:focus-visible { /* Accessibility */
-            outline: 2px solid var(--primary-color);
-            outline-offset: -2px; /* Adjust to be inside or outside */
-        }
-        .accordion-header h4 { 
-            margin: 0; 
-            font-size: 1.15em; 
-            color: var(--primary-color); 
-            font-weight: 600; 
-            font-family: 'Open Sans', sans-serif;
-            transition: var(--transition-standard);
-        }
-        .accordion-header .icon { 
-            color: var(--primary-color); 
-            margin-right: 12px; 
-            font-size: 1.05em;
-            transition: var(--transition-standard);
-        }
-        .accordion-header .toggle-icon { 
-            font-size: 1.2em; 
-            color: var(--primary-color); 
-            transition: var(--transition-standard);
-        }
-
-        .accordion-item.active {
-            box-shadow: var(--shadow-md);
-        }
-        .accordion-item.active .accordion-header {
-            background-color: var(--primary-color);
-        }
-        .accordion-item.active .accordion-header h4,
-        .accordion-item.active .accordion-header .icon,
-        .accordion-item.active .accordion-header .toggle-icon {
-            color: var(--light-text-color);
-        }
-        .accordion-item.active .toggle-icon { transform: rotate(180deg); }
-
-        .accordion-content {
-            padding: 0 20px; /* Horizontal padding applied here */
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding-top 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding-bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: #fdfdfd; /* Slight off-white for content area */
-        }
-        
-        .accordion-content-inner {
-            padding: 20px 0; /* Vertical padding for content inside */
-        }
-        .accordion-content ul { list-style-type: '– '; padding-left: 15px; margin-top: 0.8em; }
-        .accordion-content ul li { font-size: 0.95em; margin-bottom: 0.5em; padding-left: 5px; }
-
-        .checklist-note {
-            background: linear-gradient(135deg, var(--accent-orange), var(--secondary-color));
-            color: var(--light-text-color);
-            padding: 18px 22px;
-            text-align: center;
-            border-radius: var(--border-radius);
-            font-size: 1.1em;
-            font-weight: 700;
-            margin-top: 2em;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition-standard);
-        }
-        .checklist-note:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-        .checklist-note .fa-bullhorn { 
-            margin-right: 10px; 
-            animation: pulse 1.8s infinite ease-in-out; 
-        }
-
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-
-        /* --- FAQ Section --- */
-        #faq .accordion-header h4 { font-size: 1.1em; }
-        #faq .accordion-content p { font-size: 0.95em; }
-        #faq .accordion-content ul { list-style-type: disc; }
-
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 35px 0;
-            margin-top: 3em;
-            background-color: var(--neutral-dark);
-            color: #b0bec5;
-            font-size: 0.9em;
-            position: relative;
-            overflow: hidden;
-        }
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
-            z-index: 1;
-        }
-        footer p { margin-bottom: 0.6em; }
-        footer a { color: var(--secondary-color); font-weight: 600; transition: var(--transition-standard); }
-        footer a:hover { color: var(--light-text-color); text-decoration: none; }
-        .footer-brand { font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--light-text-color); }
-        .footer-brand .academy { color: var(--secondary-color); }
-        .footer-contact { font-size: 1.05em; margin-top: 10px; margin-bottom: 10px !important; }
-        .footer-contact strong { color: var(--light-text-color); }
-        .footer-contact a { margin: 0 8px; }
-
-
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            box-shadow: var(--shadow-md);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: var(--transition-standard);
-            cursor: pointer;
-            z-index: 99;
-        }
-        .back-to-top.visible {
-            opacity: 0.9;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .back-to-top:hover {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            opacity: 1;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-
-        /* --- Responsive Adjustments --- */
-
-        /* Tablet & Smaller Laptops (<= 992px) */
-        @media (max-width: 992px) {
-            body { font-size: 15px; }
-            .container { width: 92%; padding: 25px 0; }
-
-            nav .nav-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .logo-wrapper {
-                flex-direction: column;
-                align-items: center;
-                margin-bottom: 12px;
-                text-align: center;
-            }
-            nav .logo { margin-bottom: 5px; text-align: center; }
-            .nav-phone-main { margin-top: 5px; font-size: 1em; }
-
-            nav ul {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 8px 12px; /* Use gap for wrapped items */
-            }
-            nav ul li { margin: 0; } /* Let gap handle spacing */
-            nav ul li a { font-size: 0.9em; padding: 6px 8px; }
-
-            .hero-header h1 { font-size: 2.8em; }
-            .hero-header .subtitle { font-size: 1.25em; }
-            .hero-header p.tagline { font-size: 1.05em; }
-            h1 { font-size: 2.3em; }
-            h2 { font-size: 1.9em; }
-            h2::before { width: 60px; top: -10px; }
-            section { padding: 30px 20px; }
-            .procedure-list > li { padding: 20px 20px 20px 65px; }
-            .procedure-list > li::before { width: 38px; height: 38px; font-size: 1.2em; left: 15px; }
-        }
-
-        /* Mobile Devices (<= 768px) */
-        @media (max-width: 768px) {
-            body { font-size: 14px; }
-            .container { width: 95%; }
-            .hero-header { padding: 50px 15px 70px 15px; clip-path: polygon(0 0, 100% 0, 100% 92%, 50% 100%, 0 92%);}
-            .hero-header p.tagline { font-size: 1em; max-width: 90%; }
-            .hero-cta { font-size: 1em; padding: 10px 25px; }
-            h1 { font-size: 2em; }
-            h2 { font-size: 1.7em; margin-top: 2em; padding-bottom: 0.5em; }
-            h2::before { width: 50px; top: -8px; height: 2px;}
-            h3 { font-size: 1.4em; }
-            h4 { font-size: 1.1em; }
-            p { font-size: 0.95em; }
-            section { padding: 25px 15px; margin-bottom: 25px; }
-            th, td { padding: 10px 8px; font-size: 0.9em;}
-            .gst-notice-row td { font-size: 0.95em; padding: 12px 15px; }
-            .gst-notice-row .icon { font-size: 1.1em; }
-            .procedure-list > li { padding: 18px 15px 18px 60px; }
-            .procedure-list > li::before { width: 35px; height: 35px; font-size: 1.1em; left: 12px; }
-            .accordion-header h4 { font-size: 1.05em; }
-            .accordion-content ul li { font-size: 0.9em; }
-            .checklist-note { font-size: 1em; padding: 15px 18px; }
-            footer { padding: 25px 0; font-size: 0.85em; }
-            
-            .mobile-menu-btn { display: block; }
-            nav .nav-container {
-                flex-direction: row; /* Override tablet style */
-                justify-content: space-between;
-            }
-            .logo-wrapper { /* Adjust for mobile row layout */
-                flex-direction: column; /* Stack logo and phone for better fit */
-                align-items: flex-start; /* Align to left */
-                margin-bottom: 0;
-                text-align: left;
-                gap: 2px; /* Reduce gap */
-            }
-            nav .logo {
-                margin-bottom: 0;
-                text-align: left;
-                font-size: 1.2em; /* Adjust for mobile */
-            }
-            nav .logo .academy-name-tagline { font-size: 0.65em; }
-            .nav-phone-main {
-                font-size: 0.85em; /* Smaller phone number */
-                padding: 2px 4px; /* Smaller padding */
-                display: block; /* Ensure it's visible if it was hidden on larger screens */
-            }
-            
-            nav ul { /* Mobile dropdown menu */
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: rgba(255, 255, 255, 0.98);
-                flex-direction: column;
-                align-items: center;
-                padding: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.35s ease-out, padding 0.35s ease-out;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                z-index: 1001; /* Above nav */
-            }
-            nav ul.mobile-visible {
-                max-height: 350px; /* Increased for more items */
-                padding: 15px 0;
-                overflow-y: auto;
-            }
-            nav ul li { width: 100%; text-align: center; }
-            nav ul li a { display: block; padding: 12px 15px; width: 100%; }
-            nav ul li a::after { display: none; } /* No underline effect in mobile dropdown */
-
-            .back-to-top { bottom: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.1em; }
-        }
-
-        /* Smaller Mobile Devices (<= 480px) */
-        @media (max-width: 480px) {
-            nav .logo { font-size: 1.1em; }
-            nav .logo .academy-name-tagline { font-size: 0.6em; } /* Further reduce tagline */
-            .nav-phone-main { font-size: 0.8em; }
-
-            .hero-header { clip-path: polygon(0 0, 100% 0, 100% 94%, 50% 100%, 0 94%); padding: 40px 10px 60px 10px;}
-            .hero-header p.tagline { font-size: 0.9em; }
-
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.5em; }
-            h3 { font-size: 1.3em; }
-            .gst-notice-row td { font-size: 0.9em; padding: 10px 12px; }
-            .gst-notice-row .icon { font-size: 1em; }
-            .procedure-list > li { padding: 15px 12px 15px 50px; }
-            .procedure-list > li::before { width: 30px; height: 30px; font-size: 1em; left: 10px;}
-            .accordion-header { padding: 12px 15px; }
-            .accordion-header h4 { font-size: 1em; }
-            .callout-box { padding: 15px 18px; }
-            .callout-box p { font-size: 0.95em; }
-            .table-note { font-size: 0.85em; }
-            .back-to-top { width: 35px; height: 35px; font-size: 1em; }
-            
-            #why-itokyo .benefits-grid { grid-template-columns: 1fr; } /* Stack benefits on smallest screens */
-            #programs .program-cards { grid-template-columns: 1fr; }
-        }
-
-        /* Print styles */
-        @media print {
-            nav, .back-to-top, .hero-cta { display: none !important; }
-            body { font-size: 12pt; color: #000; background: #fff; }
-            h1, h2, h3, h4, .accordion-header h4 { color: #000; }
-            a { color: #000; text-decoration: underline; }
-            .hero-header { background: #f0f0f0 !important; color: #000 !important; clip-path: none; padding: 20px; }
-            .hero-header h1, .hero-header .subtitle { color: #000 !important; text-shadow: none; }
-            .container { width: 100%; padding: 0; }
-            section { page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; margin-bottom: 20px; break-inside: avoid; opacity: 1 !important; transform: translateY(0) !important; }
-            .accordion-item { page-break-inside: avoid; break-inside: avoid; }
-            .accordion-content { max-height: none !important; display: block !important; padding: 10px 0 !important; }
-            .accordion-content-inner { padding: 0 !important; }
-            footer { background: #f0f0f0 !important; color: #000 !important; border-top: 1px solid #ddd; }
-            .procedure-list > li::before { background: #f0f0f0 !important; color: #000 !important; border: 1px solid #000; }
-            .table-section-header td, .total-expense-row td, .total-income-row td, .gst-notice-row td { background: #e0e0e0 !important; color: #000 !important; border: 1px solid #ccc !important;}
-            .gst-notice-row .icon { color: #000 !important;}
-            .benefit-item, .program-card { border: 1px solid #ccc; box-shadow: none; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FUTURE REFINEMENT: Consider adding a favicon -->
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100">
+    <!-- FUTURE REFINEMENT: Remove this commented out section before final deployment -->
+    <!-- The above comment refers to the original commented out body, which will be removed in this step. -->
 
-    <nav id="main-nav">
-        <div class="nav-container">
-            <div class="logo-wrapper">
-                <div class="logo">iTokyo Academy <span class="academy-name-tagline">Your Gateway to UNITAS Japan</span></div>
-                <a href="tel:9942993900" class="nav-phone-main"><i class="fas fa-phone-alt" style="margin-right: 5px;"></i>9942993900</a>
+    <header>
+        <!-- FUTURE REFINEMENT: Navbar brand href could link to #hero or #welcome for better UX when clicked while scrolled down. -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main navigation">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">iTokyo Academy</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- FUTURE REFINEMENT: Review nav item order based on user analytics/priority. -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#welcome">Welcome</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#why-us">Why Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#programs">Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#costs">Costs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#procedure">Procedure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#checklist">Checklist</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#faq">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <button type="button" class="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-            <ul id="nav-menu">
-                <li><a href="#welcome" class="active">Welcome</a></li>
-                <li><a href="#why-itokyo">Why Us</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#costs">Costs</a></li>
-                <li><a href="#procedure">Procedure</a></li>
-                <li><a href="#checklist">Checklist</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <header class="hero-header">
-        <h1>Study in Japan <span style="color: var(--secondary-color);">iTokyo Academy</span></h1>
-        <h2 class="subtitle">Your Expert Partner for UNITAS Japanese Language School Applications</h2>
-        <p class="tagline">Turn your dream of studying in Japan into reality. <strong class="iTokyo-Academy-highlight">iTokyo Academy</strong> provides comprehensive, step-by-step guidance, ensuring a smooth and successful application to UNITAS Japanese Language School.</p>
-        <a href="#procedure" class="hero-cta">Start Your Application <i class="fas fa-paper-plane" aria-hidden="true"></i></a>
+        </nav>
     </header>
 
-    <div class="container">
-        <section id="welcome" class="welcome-section">
-            <h2><i class="fas fa-door-open section-title-icon" aria-hidden="true"></i>Welcome to Your UNITAS Application Hub with <strong class="iTokyo-Academy">iTokyo Academy</strong></h2>
-            <p>Embarking on your studies at UNITAS Japanese Language School is a transformative step towards linguistic fluency and deep cultural immersion. At <strong class="iTokyo-Academy">iTokyo Academy</strong>, we are dedicated to making this journey seamless and successful for you. This isn't just information; it's your personalized <span class="highlight">masterplan for success</span>, meticulously crafted by our experienced consultants. We understand your aspirations and potential concerns, which is why <strong class="iTokyo-Academy">iTokyo Academy</strong> has channeled its expertise into this definitive guide.</p>
-            <p class="itokyo-intro">With <strong class="iTokyo-Academy">iTokyo Academy</strong>, you gain a trusted partner committed to empowering you with clarity, confidence, and a clear pathway to achieving your dream of studying in Japan.</p>
+    <main>
+        <!-- FUTURE REFINEMENT: Consider adding a more engaging hero image or background video. -->
+        <section id="hero" class="container py-5">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h1>Study in Japan with iTokyo Academy</h1>
+                    <p class="lead">Your Expert Partner for UNITAS Japanese Language School Applications</p>
+                    <p>Turn your dream of studying in Japan into reality. iTokyo Academy provides comprehensive, step-by-step guidance, ensuring a smooth and successful application to UNITAS Japanese Language School.</p>
+                    <a href="#procedure" class="btn btn-primary btn-lg">Start Your Application</a>
+                </div>
+            </div>
         </section>
 
-        <section id="why-itokyo">
-            <h2><i class="fas fa-hands-helping section-title-icon" aria-hidden="true"></i>Why Choose <strong class="iTokyo-Academy">iTokyo Academy</strong>?</h2>
-            <p style="text-align:center; max-width: 800px; margin:0 auto 1.5em auto;">Navigating international school applications can be complex. <strong class="iTokyo-Academy">iTokyo Academy</strong> simplifies this process, offering unparalleled support and expertise to ensure you're not just applying, but are set up for success.</p>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <span class="icon"><i class="fas fa-user-tie"></i></span>
-                    <h4>Expert Guidance</h4>
+        <section id="welcome" class="container py-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Welcome to Your UNITAS Application Hub with iTokyo Academy</h2>
+                    <p>Embarking on your studies at UNITAS Japanese Language School is a transformative step towards linguistic fluency and deep cultural immersion. At iTokyo Academy, we are dedicated to making this journey seamless and successful for you. This isn't just information; it's your personalized masterplan for success, meticulously crafted by our experienced consultants. We understand your aspirations and potential concerns, which is why iTokyo Academy has channeled its expertise into this definitive guide.</p>
+                    <p>With iTokyo Academy, you gain a trusted partner committed to empowering you with clarity, confidence, and a clear pathway to achieving your dream of studying in Japan.</p>
+                </div>
+                <div class="col-md-4 d-flex align-items-center justify-content-center img-placeholder-container">
+                    <!-- FUTURE REFINEMENT: Replace placeholder.svg with a relevant, optimized image. -->
+                    <img src="images/placeholder.svg" alt="iTokyo Academy Placeholder Image" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="container py-5 bg-light">
+            <h2>Why Choose iTokyo Academy?</h2>
+            <p>Navigating international school applications can be complex. iTokyo Academy simplifies this process, offering unparalleled support and expertise to ensure you're not just applying, but are set up for success.</p>
+            <!-- FUTURE REFINEMENT: Consider using icons for each "Why Us" point for better visual appeal. -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Expert Guidance</h3>
                     <p>Our seasoned consultants possess in-depth knowledge of UNITAS admission requirements and Japanese visa regulations, offering you accurate and strategic advice.</p>
                 </div>
-                <div class="benefit-item">
-                    <span class="icon"><i class="fas fa-comments"></i></span>
-                    <h4>Personalized Support</h4>
+                <div class="col-md-6">
+                    <h3>Personalized Support</h3>
                     <p>We provide tailored one-on-one consultations, understanding your unique profile to guide you effectively through every application stage.</p>
                 </div>
-                <div class="benefit-item">
-                    <span class="icon"><i class="fas fa-cogs"></i></span>
-                    <h4>Simplified Process</h4>
+                <div class="col-md-6">
+                    <h3>Simplified Process</h3>
                     <p>From document preparation to submission protocols, we streamline the complexities, ensuring a hassle-free experience for you and your sponsor.</p>
                 </div>
-                <div class="benefit-item">
-                    <span class="icon"><i class="fas fa-award"></i></span>
-                    <h4>Comprehensive Services</h4>
+                <div class="col-md-6">
+                    <h3>Comprehensive Services</h3>
                     <p>Our support extends beyond the application – we assist with interview preparation, pre-departure briefings, and initial settlement advice.</p>
                 </div>
             </div>
         </section>
 
-        <section id="programs">
-            <h2><i class="fas fa-book-open-reader section-title-icon" aria-hidden="true"></i>UNITAS Program Highlights (Guided by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</h2>
-            <p style="text-align:center; max-width: 800px; margin:0 auto 1.5em auto;">UNITAS Japanese Language School offers a variety of courses to suit different learning goals. <strong class="iTokyo-Academy">iTokyo Academy</strong> will help you identify and apply for the program that best aligns with your aspirations.</p>
-            <div class="program-cards">
-                <div class="program-card">
-                    <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+        <section id="programs" class="container py-5">
+            <h2>UNITAS Program Highlights (Guided by iTokyo Academy)</h2>
+            <p>UNITAS Japanese Language School offers a variety of courses to suit different learning goals. iTokyo Academy will help you identify and apply for the program that best aligns with your aspirations.</p>
+            <!-- FUTURE REFINEMENT: Potentially add links for each program to a dedicated page or modal with more details. -->
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
                     <h4>General Japanese Course</h4>
                     <p>Develop comprehensive Japanese skills (reading, writing, listening, speaking) for daily life, further education, or career advancement. Suitable for all levels from beginner to advanced.</p>
                 </div>
-                <div class="program-card">
-                    <span class="icon"><i class="fas fa-university"></i></span>
+                <div class="col-md-6 col-lg-3">
                     <h4>University Preparatory Course</h4>
                     <p>Focused preparation for EJU (Examination for Japanese University Admission for International Students) and support for applying to Japanese universities or vocational schools.</p>
                 </div>
-                <div class="program-card">
-                    <span class="icon"><i class="fas fa-briefcase"></i></span>
+                <div class="col-md-6 col-lg-3">
                     <h4>Business Japanese Course</h4>
                     <p>Learn Japanese specific to professional environments, including business etiquette, keigo (honorific language), and communication skills for the Japanese workplace.</p>
                 </div>
-                <div class="program-card">
-                    <span class="icon"><i class="fas fa-plane"></i></span>
+                <div class="col-md-6 col-lg-3">
                     <h4>Short-Term Courses</h4>
                     <p>Ideal for those on a tourist visa or with limited time. Experience Japanese language and culture through intensive study programs ranging from a few weeks to three months.</p>
                 </div>
             </div>
-            <div class="program-cta">
-                 <a href="tel:9942993900" class="hero-cta" style="font-size: 1.05em; padding: 12px 28px;"><i class="fas fa-phone-volume" style="margin-right: 8px;"></i>Discuss Program Options with Us</a>
+            <div class="text-center mt-4">
+                <a href="tel:9942993900" class="btn btn-secondary">Discuss Program Options with Us</a>
             </div>
         </section>
 
-        <section id="costs">
-            <h2><i class="fas fa-file-invoice-dollar section-title-icon" aria-hidden="true"></i>Comprehensive Financial Overview by <strong class="iTokyo-Academy">iTokyo Academy</strong></h2>
-            <p>A transparent understanding of the financial commitment is paramount for successful international study. <strong class="iTokyo-Academy">iTokyo Academy</strong> provides this detailed, estimated breakdown of first-year expenses and potential part-time income for Unitas students. We believe in empowering you with all necessary data for informed planning.</p>
-            <div class="cost-table-container">
-                <table>
+        <section id="costs" class="container py-5 bg-light">
+            <h2>Comprehensive Financial Overview by iTokyo Academy</h2>
+            <p>A transparent understanding of the financial commitment is paramount for successful international study. iTokyo Academy provides this detailed, estimated breakdown of first-year expenses and potential part-time income for Unitas students. We believe in empowering you with all necessary data for informed planning.</p>
+            <!-- FUTURE REFINEMENT: Consider an interactive cost calculator or more detailed breakdown for each campus if data is available. -->
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>Description</th>
@@ -1038,35 +146,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Expenses in India -->
-                        <tr class="table-section-header">
-                            <td colspan="3"><i class="fas fa-rupee-sign icon" aria-hidden="true" style="margin-right: 5px;"></i><strong>Expenses in India (INR)</strong></td>
-                        </tr>
+                        <tr><td colspan="3"><strong>Expenses in India (INR)</strong></td></tr>
                         <tr>
                             <td>Japanese Language Training (N5 + N4) & Study Materials</td>
-                            <td>₹59,000 <small>(₹50,000 + 18% GST)</small></td>
-                            <td>₹59,000 <small>(₹50,000 + 18% GST)</small></td>
+                            <td>₹59,000 (₹50,000 + 18% GST)</td>
+                            <td>₹59,000 (₹50,000 + 18% GST)</td>
                         </tr>
                         <tr>
                             <td>Document Processing & Professional Services</td>
-                            <td>₹59,000 <small>(₹50,000 + 18% GST)</small></td>
-                            <td>₹59,000 <small>(₹50,000 + 18% GST)</small></td>
+                            <td>₹59,000 (₹50,000 + 18% GST)</td>
+                            <td>₹59,000 (₹50,000 + 18% GST)</td>
                         </tr>
                         <tr>
                             <td>One-Way Flight Ticket (Estimated)</td>
                             <td>₹50,000</td>
                             <td>₹50,000</td>
                         </tr>
-                        <tr class="sub-total-b">
+                        <tr>
                             <td><strong>Sub-Total (India - INR)</strong></td>
                             <td><strong>₹168,000</strong></td>
                             <td><strong>₹168,000</strong></td>
                         </tr>
-
-                        <!-- Expenses in Japan -->
-                        <tr class="table-section-header">
-                            <td colspan="3"><i class="fas fa-yen-sign icon" aria-hidden="true" style="margin-right: 5px;"></i><strong>Expenses in Japan (JPY)</strong></td>
-                        </tr>
+                        <tr><td colspan="3"><strong>Expenses in Japan (JPY)</strong></td></tr>
                         <tr>
                             <td>1-Year Course Fee</td>
                             <td>740,000 JPY</td>
@@ -1074,70 +175,58 @@
                         </tr>
                         <tr>
                             <td>Living Expenses (12 Months)</td>
-                            <td>960,000 JPY <small>(80,000/month)</small></td>
-                            <td>1,320,000 JPY <small>(110,000/month)</small></td>
+                            <td>960,000 JPY (80,000/month)</td>
+                            <td>1,320,000 JPY (110,000/month)</td>
                         </tr>
-                        <tr class="sub-total-b">
+                        <tr>
                             <td><strong>Sub-Total (Japan - JPY)</strong></td>
                             <td><strong>1,700,000 JPY</strong></td>
                             <td><strong>2,120,000 JPY</strong></td>
                         </tr>
-                        <tr style="font-weight: 600; background-color: var(--neutral-light);">
-                            <td>Converted to INR <small>(@ 1 JPY = 0.60 INR)</small></td>
+                        <tr>
+                            <td>Converted to INR (@ 1 JPY = 0.60 INR)</td>
                             <td>₹1,020,000</td>
                             <td>₹1,272,000</td>
                         </tr>
-
-                        <!-- Total Expenses -->
-                         <tr class="table-section-header" style="background-color: var(--primary-color) !important; color: var(--light-text-color) !important;">
-                            <td colspan="3"><i class="fas fa-wallet icon" aria-hidden="true" style="margin-right: 5px; color: var(--secondary-color);"></i><strong>Total Estimated First-Year Expenses</strong></td>
+                        <tr><td colspan="3"><strong>Total Estimated First-Year Expenses</strong></td></tr>
+                        <tr>
+                            <td>Total Expense (INR) [India + Japan]</td>
+                            <td>₹1,188,000</td>
+                            <td>₹1,440,000</td>
                         </tr>
-                        <tr class="total-expense-row">
-                            <td><strong>Total Expense (INR) <small>[India + Japan]</small></strong></td>
-                            <td><strong>₹1,188,000</strong></td>
-                            <td><strong>₹1,440,000</strong></td>
+                        <tr>
+                            <td>Total Expense (JPY equivalent)</td>
+                            <td>1,980,000 JPY</td>
+                            <td>2,400,000 JPY</td>
                         </tr>
-                        <tr style="font-weight: 700; background-color: #e9f5ff; color: var(--primary-color);">
-                            <td><strong>Total Expense (JPY equivalent)</strong></td>
-                            <td><strong>1,980,000 JPY</strong></td>
-                            <td><strong>2,400,000 JPY</strong></td>
-                        </tr>
-
-                        <!-- Part-Time Income -->
-                        <tr class="table-section-header">
-                            <td colspan="3"><i class="fas fa-briefcase icon" aria-hidden="true" style="margin-right: 5px;"></i><strong>Potential Part-Time Income (Student Work Permit)</strong></td>
-                        </tr>
+                        <tr><td colspan="3"><strong>Potential Part-Time Income (Student Work Permit)</strong></td></tr>
                         <tr>
                             <td>Hourly Wage</td>
                             <td>~950 JPY/hr</td>
                             <td>~1150 JPY/hr</td>
                         </tr>
                         <tr>
-                            <td>Projected Monthly Income <small>(90–100 hrs/month)</small></td>
+                            <td>Projected Monthly Income (90–100 hrs/month)</td>
                             <td>85,500–95,000 JPY</td>
                             <td>103,500–115,000 JPY</td>
                         </tr>
                         <tr>
-                            <td>Estimated Yearly Income <small>(10–11 months)</small></td>
+                            <td>Estimated Yearly Income (10–11 months)</td>
                             <td>855,000–1,045,000 JPY</td>
                             <td>1,035,000–1,265,000 JPY</td>
                         </tr>
-                        <tr class="total-income-row">
-                            <td><strong>Total Part-Time Income (INR @ 0.60)</strong></td>
-                            <td><strong>₹513,000 – ₹627,000</strong></td>
-                            <td><strong>₹621,000 – ₹759,000</strong></td>
+                        <tr>
+                            <td>Total Part-Time Income (INR @ 0.60)</td>
+                            <td>₹513,000 – ₹627,000</td>
+                            <td>₹621,000 – ₹759,000</td>
                         </tr>
-
-                        <!-- Net Balance -->
-                        <tr class="table-section-header" style="background-color: var(--accent-green) !important; color: var(--light-text-color) !important;">
-                             <td colspan="3"><i class="fas fa-calculator icon" aria-hidden="true" style="margin-right: 5px; color: var(--secondary-color);"></i><strong>Net Estimated Balance (After Part-Time Income)</strong></td>
-                        </tr>
-                        <tr style="font-weight: 700; background-color: #e6ffed;">
+                        <tr><td colspan="3"><strong>Net Estimated Balance (After Part-Time Income)</strong></td></tr>
+                        <tr>
                             <td>Net Estimated Cost (INR)</td>
                             <td>₹561,000 – ₹675,000</td>
                             <td>₹681,000 – ₹819,000</td>
                         </tr>
-                        <tr style="font-weight: 700; background-color: #fff0f0;">
+                        <tr>
                             <td>Net Estimated Cost (JPY)</td>
                             <td>935,000 – 1,125,000 JPY</td>
                             <td>1,135,000 – 1,365,000 JPY</td>
@@ -1145,670 +234,343 @@
                     </tbody>
                 </table>
             </div>
-            <p class="table-note"><strong><strong class="iTokyo-Academy">iTokyo Academy</strong> Disclaimer:</strong> These figures represent carefully considered estimates for your initial planning. The currency exchange rate (0.60 INR per JPY) is indicative and subject to fluctuation. Actual living expenses and part-time income can vary based on individual lifestyle, economic conditions, job availability, and hours worked. Official school fees are subject to change by UNITAS and will be confirmed by <strong class="iTokyo-Academy">iTokyo Academy</strong> during your application.</p>
+            <p class="mt-3"><small><strong>iTokyo Academy Disclaimer:</strong> These figures represent carefully considered estimates for your initial planning. The currency exchange rate (0.60 INR per JPY) is indicative and subject to fluctuation. Actual living expenses and part-time income can vary based on individual lifestyle, economic conditions, job availability, and hours worked. Official school fees are subject to change by UNITAS and will be confirmed by iTokyo Academy during your application.</small></p>
         </section>
 
-        <section id="procedure">
-            <h2><i class="fas fa-cogs section-title-icon" aria-hidden="true"></i> The <strong class="iTokyo-Academy">iTokyo Academy</strong> Streamlined UNITAS Application Protocol</h2>
-            <p>Navigate the UNITAS application with unparalleled precision and confidence by following the <strong class="iTokyo-Academy">iTokyo Academy</strong> step-by-step protocol. Our expert consultants will be your partners, ensuring every stage is handled with utmost professionalism for a seamless experience.</p>
-            <ol class="procedure-list">
+        <section id="procedure" class="container py-5">
+            <h2>The iTokyo Academy Streamlined UNITAS Application Protocol</h2>
+            <p>Navigate the UNITAS application with unparalleled precision and confidence by following the iTokyo Academy step-by-step protocol. Our expert consultants will be your partners, ensuring every stage is handled with utmost professionalism for a seamless experience.</p>
+            <ol>
                 <li>
-                    <strong class="step-title"><i class="fas fa-user-shield icon" aria-hidden="true"></i>Step 1: In-depth Requirement Analysis & Sponsor Validation with <strong class="iTokyo-Academy">iTokyo Academy</strong></strong>
-                    <p>Before initiating the application, it's crucial to meet eligibility criteria:
-                        <ul>
-                            <li>Minimum 12 years of formal education completed.</li>
-                            <li>Applicant should be 18 years or older when applying for the visa (or have a guardian in Japan).</li>
-                        </ul>
-                    </p>
-                    <div class="sponsor-requirements">
-                        <h4><i class="fas fa-check-circle icon" style="color: var(--accent-green);" aria-hidden="true"></i>Sponsor Eligibility Criteria (Confirmed by <strong class="iTokyo-Academy">iTokyo Academy</strong>):</h4>
-                        <ul>
-                            <li>A financially sound sponsor is non-negotiable for a student visa to UNITAS Japan.</li>
-                            <li>Permitted sponsors: Self, direct family members, or verifiable blood relatives.</li>
-                            <li>Sponsor's verifiable monthly income: > 1 Lakh INR.</li>
-                            <li>Sponsor's recent ITR filing: > 10 Lakhs INR.</li>
-                            <li>Sponsor's readily available bank balance: > 10 Lakhs INR (clearly documented).</li>
-                        </ul>
-                         <p style="margin-top:15px; font-size:0.95em;">Your dedicated <strong class="iTokyo-Academy">iTokyo Academy</strong> advisor will meticulously assess your sponsor's documentation to ensure full compliance.</p>
-                    </div>
+                    <strong>Step 1: In-depth Requirement Analysis & Sponsor Validation with iTokyo Academy</strong>
+                    <p>Before initiating the application, it's crucial to meet eligibility criteria:</p>
+                    <ul>
+                        <li>Minimum 12 years of formal education completed.</li>
+                        <li>Applicant should be 18 years or older when applying for the visa (or have a guardian in Japan).</li>
+                    </ul>
+                    <p>Sponsor Eligibility Criteria (Confirmed by iTokyo Academy):</p>
+                    <ul>
+                        <li>A financially sound sponsor is non-negotiable for a student visa to UNITAS Japan.</li>
+                        <li>Permitted sponsors: Self, direct family members, or verifiable blood relatives.</li>
+                        <li>Sponsor's verifiable monthly income: > 1 Lakh INR.</li>
+                        <li>Sponsor's recent ITR filing: > 10 Lakhs INR.</li>
+                        <li>Sponsor's readily available bank balance: > 10 Lakhs INR (clearly documented).</li>
+                    </ul>
+                    <p>Your dedicated iTokyo Academy advisor will meticulously assess your sponsor's documentation to ensure full compliance.</p>
                 </li>
                 <li>
-                    <strong class="step-title"><i class="fas fa-file-signature icon" aria-hidden="true"></i>Step 2: Initial Document Collation & Submission to <strong class="iTokyo-Academy">iTokyo Academy</strong> Central Processing</strong>
-                    <p>Upon successful sponsor validation, your <strong class="iTokyo-Academy">iTokyo Academy</strong> advisor will provide a personalized checklist and guide you in compiling these preliminary documents for our internal review:</p>
+                    <strong>Step 2: Initial Document Collation & Submission to iTokyo Academy Central Processing</strong>
+                    <p>Upon successful sponsor validation, your iTokyo Academy advisor will provide a personalized checklist and guide you in compiling these preliminary documents for our internal review:</p>
                     <ul>
-                        <li>UNITAS CV Excel file (Latest version, provided by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</li>
+                        <li>UNITAS CV Excel file (Latest version, provided by iTokyo Academy)</li>
                         <li>High-Resolution Passport Copy (All relevant pages, clear and legible)</li>
                         <li>10th & 12th Grade Marksheets & Certificates</li>
                         <li>Bachelor's/Master's Degree Certificate & Marksheets (if applicable)</li>
                         <li>JLPT / NAT Certificate (Any level attained significantly boosts your profile)</li>
                         <li>Sponsor's Latest ITR Copy (with computation of income)</li>
                     </ul>
-                    <div class="callout-box warning">
-                        <p><strong><i class="fas fa-exclamation-triangle icon" aria-hidden="true"></i><strong class="iTokyo-Academy">iTokyo Academy</strong>'s Critical Submission Directives:</strong></p>
-                        <ul>
-                            <li>Adhere strictly to using the <span class="highlight">DEDICATED EMAIL THREAD</span> established by your <strong class="iTokyo-Academy">iTokyo Academy</strong> consultant for all submissions.</li>
-                            <li>Employ clear, standardized filenames as instructed by <strong class="iTokyo-Academy">iTokyo Academy</strong> (e.g., `YourFullName_Passport_YYYYMMDD.pdf`).</li>
-                        </ul>
-                    </div>
-                    <div class="callout-box">
-                        <p><strong><i class="fas fa-envelope-open-text icon" aria-hidden="true"></i>Primary Email for <strong class="iTokyo-Academy">iTokyo Academy</strong> Admissions Team:</strong> <a href="mailto:unitasadmission@itokyoacademy.com">unitasadmission@itokyoacademy.com</a></p>
-                        <p><strong><i class="fas fa-user-tie icon" aria-hidden="true"></i>Mandatory CC to Your <strong class="iTokyo-Academy">iTokyo Academy</strong> Lead Consultant:</strong> <a href="mailto:kumar@itokyoacademy.com">kumar@itokyoacademy.com</a></p>
-                    </div>
+                    <p>iTokyo Academy's Critical Submission Directives:</p>
+                    <ul>
+                        <li>Adhere strictly to using the DEDICATED EMAIL THREAD established by your iTokyo Academy consultant for all submissions.</li>
+                        <li>Employ clear, standardized filenames as instructed by iTokyo Academy (e.g., <code>YourFullName_Passport_YYYYMMDD.pdf</code>).</li>
+                    </ul>
+                    <p>Primary Email for iTokyo Academy Admissions Team: <a href="mailto:unitasadmission@itokyoacademy.com">unitasadmission@itokyoacademy.com</a></p>
+                    <p>Mandatory CC to Your iTokyo Academy Lead Consultant: <a href="mailto:kumar@itokyoacademy.com">kumar@itokyoacademy.com</a></p>
                 </li>
-                <li><strong class="step-title"><i class="fas fa-users-cog icon" aria-hidden="true"></i>Step 3: Strategic Meeting 1 with Vinothini (<strong class="iTokyo-Academy">iTokyo Academy</strong> Client Relations)</strong> (Initial profile assessment, expectation setting, and personalized roadmap discussion)</li>
-                <li><strong class="step-title"><i class="fas fa-chalkboard-teacher icon" aria-hidden="true"></i>Step 4: Strategic Meeting 2 with Kumarさん (<strong class="iTokyo-Academy">iTokyo Academy</strong> Senior Visa & Admissions Strategist)</strong> (In-depth document review, financial articulation, and interview preparation strategies)</li>
-                <li><strong class="step-title"><i class="fas fa-school icon" aria-hidden="true"></i>Step 5: Official UNITAS Application Submission & Screening (Facilitated by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</strong> (Your application is formally submitted to UNITAS for screening, managed by <strong class="iTokyo-Academy">iTokyo Academy</strong>.)</li>
-                <li><strong class="step-title"><i class="fas fa-file-import icon" aria-hidden="true"></i>Step 6: Application to Immigration Bureau for CoE (by UNITAS via <strong class="iTokyo-Academy">iTokyo Academy</strong>)</strong> (Upon successful screening, UNITAS applies to the Japanese Immigration Bureau for your Certificate of Eligibility (CoE).)</li>
-                <li><strong class="step-title"><i class="fas fa-award icon" aria-hidden="true"></i>Step 7: CoE Issuance & Tuition Fee Payment</strong> (Once CoE is issued, <strong class="iTokyo-Academy">iTokyo Academy</strong> informs you. You then pay tuition fees to UNITAS.)</li>
-                <li><strong class="step-title"><i class="fas fa-stamp icon" aria-hidden="true"></i>Step 8: Receive CoE & Admission Permit, Visa Lodgment (Guided by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</strong> (UNITAS sends original CoE and Admission Permit. <strong class="iTokyo-Academy">iTokyo Academy</strong> guides your visa application at the Japanese Embassy/Consulate.)</li>
-                 <li><strong class="step-title"><i class="fas fa-plane-departure icon" aria-hidden="true"></i>Step 9: Visa Approval & Pre-Departure Orientation by <strong class="iTokyo-Academy">iTokyo Academy</strong></strong> (Celebrate your visa! Attend our pre-departure session to prepare for your journey to Japan.)</li>
+                <li><strong>Step 3: Strategic Meeting 1 with Vinothini (iTokyo Academy Client Relations)</strong> (Initial profile assessment, expectation setting, and personalized roadmap discussion)</li>
+                <li><strong>Step 4: Strategic Meeting 2 with Kumarさん (iTokyo Academy Senior Visa & Admissions Strategist)</strong> (In-depth document review, financial articulation, and interview preparation strategies)</li>
+                <li><strong>Step 5: Official UNITAS Application Submission & Screening (Facilitated by iTokyo Academy)</strong> (Your application is formally submitted to UNITAS for screening, managed by iTokyo Academy.)</li>
+                <li><strong>Step 6: Application to Immigration Bureau for CoE (by UNITAS via iTokyo Academy)</strong> (Upon successful screening, UNITAS applies to the Japanese Immigration Bureau for your Certificate of Eligibility (CoE).)</li>
+                <li><strong>Step 7: CoE Issuance & Tuition Fee Payment</strong> (Once CoE is issued, iTokyo Academy informs you. You then pay tuition fees to UNITAS.)</li>
+                <li><strong>Step 8: Receive CoE & Admission Permit, Visa Lodgment (Guided by iTokyo Academy)</strong> (UNITAS sends original CoE and Admission Permit. iTokyo Academy guides your visa application at the Japanese Embassy/Consulate.)</li>
+                <li><strong>Step 9: Visa Approval & Pre-Departure Orientation by iTokyo Academy</strong> (Celebrate your visa! Attend our pre-departure session to prepare for your journey to Japan.)</li>
             </ol>
         </section>
 
-        <section id="checklist">
-            <h2><i class="fas fa-clipboard-list section-title-icon" aria-hidden="true"></i>The <strong class="iTokyo-Academy">iTokyo Academy</strong> Gold-Standard Document Checklist</h2>
-            <div class="checklist-intro">
-                <p>Perfection in documentation is non-negotiable. This exhaustive checklist, developed by <strong class="iTokyo-Academy">iTokyo Academy</strong>'s seasoned experts, outlines all 16 critical document sets. Your <strong class="iTokyo-Academy">iTokyo Academy</strong> consultant will provide personalized templates and scrutinize each item for compliance before submission.</p>
-            </div>
-            <div class="callout-box warning">
-                 <p><strong><i class="fas fa-exclamation-circle icon" aria-hidden="true"></i><strong class="iTokyo-Academy">iTokyo Academy</strong>'s Unwavering Submission Protocol:</strong></p>
-                 <ul>
-                    <li>Maintain the integrity of the <span class="highlight">SINGLE EMAIL THREAD</span> for all document exchanges with <strong class="iTokyo-Academy">iTokyo Academy</strong>.</li>
-                    <li>Adhere to <strong class="iTokyo-Academy">iTokyo Academy</strong>'s <span class="highlight">PRESCRIBED FILENAMING CONVENTIONS</span> for impeccable organization.</li>
-                </ul>
-            </div>
-             <div class="callout-box">
-                <p><strong><i class="fas fa-paper-plane icon" aria-hidden="true"></i>Submit All Final, <strong class="iTokyo-Academy">iTokyo Academy</strong>-Verified Documents To:</strong> <a href="mailto:unitasadmission@itokyoacademy.com">unitasadmission@itokyoacademy.com</a></p>
-                <p><strong><i class="fas fa-user-check icon" aria-hidden="true"></i>Ensure CC To Your <strong class="iTokyo-Academy">iTokyo Academy</strong> Primary Contact:</strong> <a href="mailto:kumar@itokyoacademy.com">kumar@itokyoacademy.com</a></p>
-            </div>
-
-            <div class="accordion">
-                <!-- Item 1 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-file-excel icon" aria-hidden="true"></i>1. Application Forms (Excel – Form 1, 2, & 3: <strong class="iTokyo-Academy">iTokyo Academy</strong> Version)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p><strong class="iTokyo-Academy">iTokyo Academy</strong> provides the official, latest versions of these forms and offers line-by-line guidance to ensure error-free completion.</p>
-                            <ul>
-                                <li>Fill in <span class="highlight">BLOCK CAPITAL LETTERS ONLY</span>, as per Japanese immigration standards.</li>
-                                <li>Your Full Name: "SURNAME FIRSTNAME MIDDLENAME" (precisely as it appears on your passport). Example: Surname: Ganesan, Given Name: Vinothini → GANESAN VINOTHINI.</li>
-                                <li>Address: Use the permanent address from Your Passport. Any deviation must be explained and documented, as advised by <strong class="iTokyo-Academy">iTokyo Academy</strong>.</li>
-                                <li>Course Applied for: "General Japanese Language Course" (or specific course advised by <strong class="iTokyo-Academy">iTokyo Academy</strong>).</li>
-                                <li>Accommodation Preference: "To be decided" (UNITAS or <strong class="iTokyo-Academy">iTokyo Academy</strong> can assist with options later).</li>
-                                <li>Future Plans (in form): Clearly articulate your post-study goals (e.g., "Seek employment in IT sector in Japan leveraging Japanese skills"). <strong class="iTokyo-Academy">iTokyo Academy</strong> helps refine this statement.</li>
-                                <li>Sponsor's Full Legal Name: Must <span class="highlight">PERFECTLY MATCH</span> all financial and identification documents (ITR, Bank Records, Passport/Aadhaar).</li>
-                                <li>Form 2 (Detailed Education History): List all formal education from 1st Standard (Primary School) onwards. <span class="highlight">EXCLUDE Kindergarten/Nursery</span>. Ensure no gaps in timelines.</li>
-                                <li>School/College Names: Use <span class="highlight">FULL OFFICIAL NAMES</span> (e.g., "Kendriya Vidyalaya No. 1" ✅ not "KV No. 1" ❌).</li>
-                                <li>Graduation Dates: Mention exact Month & Year as per official certificates/transcripts.</li>
-                                <li>Reason For Study (in form): A concise, impactful summary (approx. 5-7 lines). <strong class="iTokyo-Academy">iTokyo Academy</strong> provides examples and review.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 2 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-file-word icon" aria-hidden="true"></i>2. Statement of Purpose (Reason for Study - PDF/Word)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>A compelling narrative (approx. 2-3 well-structured paragraphs, ~300-400 words). Explain your motivations: <span class="highlight">Why Japanese? Why Japan? Why UNITAS? How does this align with your past experiences and future aspirations?</span> <strong class="iTokyo-Academy">iTokyo Academy</strong> offers critical feedback to enhance its persuasiveness.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-file-alt icon" aria-hidden="true"></i>3. Future Path & Career Goals Explanation (PDF/Word)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                             <p>A detailed plan (approx. 2-3 paragraphs, ~300 words). Articulate your <span class="highlight">specific career objectives post-UNITAS</span> and how the Japanese language proficiency gained will be instrumental. Mention target industries or roles if possible. <strong class="iTokyo-Academy">iTokyo Academy</strong> helps you craft a realistic and convincing statement.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 4: Degree Certificate -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-graduation-cap icon" aria-hidden="true"></i>4. Academic Transcripts & Degree Certificate(s)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>Clear, notarized (if required by embassy/UNITAS, <strong class="iTokyo-Academy">iTokyo Academy</strong> will advise) color scans of all marksheets and the final degree/diploma certificate for your highest completed qualification (and 12th/10th). If currently studying, provide latest marksheets and a Bonafide Certificate.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 5: JLPT/NAT -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-language icon" aria-hidden="true"></i>5. JLPT/NAT/Other Japanese Proficiency Certificate</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>Official certificate of any Japanese language proficiency test passed (e.g., JLPT N5, N4, NAT Q5, Q4). This is a <span class="highlight">highly valued asset</span>. If results are pending, provide the admit card/registration proof. <strong class="iTokyo-Academy">iTokyo Academy</strong> emphasizes the importance of this.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 6: Study Certificate -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-chalkboard icon" aria-hidden="true"></i>6. Japanese Language Study Hours Certificate (from Institute)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>An official certificate from your Japanese language training institute detailing the <span class="highlight">total number of study hours completed</span> (e.g., 150 hours, 300 hours) and the levels/textbooks covered. <strong class="iTokyo-Academy">iTokyo Academy</strong> can provide a sample format if needed.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 7: Passport -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-passport icon" aria-hidden="true"></i>7. Passport Copy (All Pages with Markings)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>High-resolution, color scans of <span class="highlight">ALL pages</span> of your current passport, including blank ones. Ensure passport is valid for at least 1 year from your intended start date in Japan. Previous passports with travel history (especially to Japan) should also be included if advised by <strong class="iTokyo-Academy">iTokyo Academy</strong>.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 8: Relationship Proof -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-users icon" aria-hidden="true"></i>8. Sponsor-Applicant Relationship Proof (Official Documents)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>Legally valid documents clearly establishing the relationship:
-                                <ul>
-                                    <li>Parents as sponsor: Your Birth Certificate, Sponsor's Passport/Aadhaar.</li>
-                                    <li>Other relatives: A detailed Family Tree Chart (genealogy) supported by relevant birth certificates/official records, and an Affidavit of Support. <strong class="iTokyo-Academy">iTokyo Academy</strong> provides templates and guidance for complex cases.</li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 9: Bank Statement -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-university icon" aria-hidden="true"></i>9. Sponsor's 1-Year Bank Statement (Original/Attested)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>Original or bank-attested statements for the past <span class="highlight">12 consecutive months</span> for the primary account showing consistent financial capacity and the required balance. Must clearly show account holder's name, account number, and bank's stamp/seal on every page. <strong class="iTokyo-Academy">iTokyo Academy</strong> helps analyze this for red flags.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 10: Bulk Transfer -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-exchange-alt icon" aria-hidden="true"></i>10. Explanation Letter for Large/Recent Deposits (If Applicable)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>Mandatory if any significant deposits (e.g., >2-3 Lakhs INR, or pattern of deposits leading to the required balance) occurred in the sponsor's account, especially in the last 3-6 months. Letter must detail the source of funds with <span class="highlight">irrefutable documentary evidence</span> (e.g., sale deed, PF withdrawal statement, gift deed from close relative with their financials). <strong class="iTokyo-Academy">iTokyo Academy</strong> offers expert assistance in structuring this critical letter.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 11: Bank Balance Certificate -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-certificate icon" aria-hidden="true"></i>11. Sponsor's Bank Balance Certificate (Original, Recent)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>An original certificate from the sponsor's bank, issued recently (within 1 month of submission), confirming a closing balance of <span class="highlight">at least 10-12 Lakhs INR</span> (or JPY equivalent as advised by <strong class="iTokyo-Academy">iTokyo Academy</strong>). Must be on bank letterhead, signed, and stamped.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 12: Sponsor's ITR -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-file-invoice icon" aria-hidden="true"></i>12. Sponsor's Income Tax Returns (Last 3 Years) & PAN Card</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>Complete ITR documents (including computation of income, acknowledgement) for the sponsor for the <span class="highlight">last three assessment years</span>. Also, a clear copy of the sponsor's PAN card. This demonstrates consistent income. <strong class="iTokyo-Academy">iTokyo Academy</strong> verifies completeness.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 13: Candidate Name Diff -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-user-edit icon" aria-hidden="true"></i>13. Applicant's Name Discrepancy Affidavit (If Applicable)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>If your name (or parents' names) varies across academic certificates, passport, Aadhaar, etc., a notarized affidavit explaining the variations and confirming the correct legal name is required. <strong class="iTokyo-Academy">iTokyo Academy</strong> provides standard formats.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 14: Sponsor Name Diff -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-user-shield icon" aria-hidden="true"></i>14. Sponsor's Name Discrepancy Affidavit (If Applicable)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>Similarly, if the sponsor's name has variations across their official documents (ITR, bank, ID proofs), a notarized affidavit is needed. <strong class="iTokyo-Academy">iTokyo Academy</strong> ensures this is correctly prepared.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 15: Work Experience -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-user-tie icon" aria-hidden="true"></i>15. Applicant's Work Experience Proof (If Any Gap or Relevant)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>If there's a gap between your last education and application, or if your work experience is relevant to your study plan: Appointment letters, experience certificates, salary slips (last 3 months), relieving letters. <strong class="iTokyo-Academy">iTokyo Academy</strong> advises on how to best present this to explain study gaps.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 16: Photo -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h4><i class="fas fa-id-card-alt icon" aria-hidden="true"></i>16. Applicant's Passport-Size Photographs (Specifics by <strong class="iTokyo-Academy">iTokyo Academy</strong>)</h4>
-                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>Recent (within last 3 months), high-quality, professional photographs.
-                                <ul>
-                                    <li>Quantity: 1 Digital Soft Copy (JPEG, high-res), 4-6 Physical Hard Copies.</li>
-                                    <li>Specifications: <span class="highlight">3cm x 4cm or 3.5cm x 4.5cm</span> (as per latest UNITAS/Embassy guidelines - <strong class="iTokyo-Academy">iTokyo Academy</strong> will confirm), plain white background, matte finish, 80% face coverage, no spectacles/headgear (unless religious and clearly shows face).</li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="checklist-note">
-                <p><i class="fas fa-bullhorn" aria-hidden="true"></i> <span style="font-weight:800; letter-spacing: 0.5px;">ATTENTION TO DETAIL IS PARAMOUNT!</span> This checklist is your bible. Your <strong class="iTokyo-Academy">iTokyo Academy</strong> consultant is your ultimate resource for any query. Ensure every document is pristine before final submission through <strong class="iTokyo-Academy">iTokyo Academy</strong>.</p>
-            </div>
+        <section id="checklist" class="container py-5 bg-light">
+            <h2>The iTokyo Academy Gold-Standard Document Checklist</h2>
+            <p>Perfection in documentation is non-negotiable. This exhaustive checklist, developed by iTokyo Academy's seasoned experts, outlines all 16 critical document sets. Your iTokyo Academy consultant will provide personalized templates and scrutinize each item for compliance before submission.</p>
+            <!-- FUTURE REFINEMENT: Make checklist items downloadable or link to example documents. -->
+            <p><strong>iTokyo Academy's Unwavering Submission Protocol:</strong></p>
+            <ul>
+                <li>Maintain the integrity of the SINGLE EMAIL THREAD for all document exchanges with iTokyo Academy.</li>
+                <li>Adhere to iTokyo Academy's PRESCRIBED FILENAMING CONVENTIONS for impeccable organization.</li>
+            </ul>
+            <p>Submit All Final, iTokyo Academy-Verified Documents To: <a href="mailto:unitasadmission@itokyoacademy.com">unitasadmission@itokyoacademy.com</a></p>
+            <p>Ensure CC To Your iTokyo Academy Primary Contact: <a href="mailto:kumar@itokyoacademy.com">kumar@itokyoacademy.com</a></p>
+            
+            <ol>
+                <li>
+                    <strong>Application Forms (Excel – Form 1, 2, & 3: iTokyo Academy Version)</strong>
+                    <p>iTokyo Academy provides the official, latest versions of these forms and offers line-by-line guidance to ensure error-free completion.</p>
+                    <ul>
+                        <li>Fill in BLOCK CAPITAL LETTERS ONLY, as per Japanese immigration standards.</li>
+                        <li>Your Full Name: "SURNAME FIRSTNAME MIDDLENAME" (precisely as it appears on your passport). Example: Surname: Ganesan, Given Name: Vinothini → GANESAN VINOTHINI.</li>
+                        <li>Address: Use the permanent address from Your Passport. Any deviation must be explained and documented, as advised by iTokyo Academy.</li>
+                        <li>Course Applied for: "General Japanese Language Course" (or specific course advised by iTokyo Academy).</li>
+                        <li>Accommodation Preference: "To be decided" (UNITAS or iTokyo Academy can assist with options later).</li>
+                        <li>Future Plans (in form): Clearly articulate your post-study goals (e.g., "Seek employment in IT sector in Japan leveraging Japanese skills"). iTokyo Academy helps refine this statement.</li>
+                        <li>Sponsor's Full Legal Name: Must PERFECTLY MATCH all financial and identification documents (ITR, Bank Records, Passport/Aadhaar).</li>
+                        <li>Form 2 (Detailed Education History): List all formal education from 1st Standard (Primary School) onwards. EXCLUDE Kindergarten/Nursery. Ensure no gaps in timelines.</li>
+                        <li>School/College Names: Use FULL OFFICIAL NAMES (e.g., "Kendriya Vidyalaya No. 1" ✅ not "KV No. 1" ❌).</li>
+                        <li>Graduation Dates: Mention exact Month & Year as per official certificates/transcripts.</li>
+                        <li>Reason For Study (in form): A concise, impactful summary (approx. 5-7 lines). iTokyo Academy provides examples and review.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Statement of Purpose (Reason for Study - PDF/Word)</strong>
+                    <p>A compelling narrative (approx. 2-3 well-structured paragraphs, ~300-400 words). Explain your motivations: Why Japanese? Why Japan? Why UNITAS? How does this align with your past experiences and future aspirations? iTokyo Academy offers critical feedback to enhance its persuasiveness.</p>
+                </li>
+                <li>
+                    <strong>Future Path & Career Goals Explanation (PDF/Word)</strong>
+                    <p>A detailed plan (approx. 2-3 paragraphs, ~300 words). Articulate your specific career objectives post-UNITAS and how the Japanese language proficiency gained will be instrumental. Mention target industries or roles if possible. iTokyo Academy helps you craft a realistic and convincing statement.</p>
+                </li>
+                <li>
+                    <strong>Academic Transcripts & Degree Certificate(s)</strong>
+                    <p>Clear, notarized (if required by embassy/UNITAS, iTokyo Academy will advise) color scans of all marksheets and the final degree/diploma certificate for your highest completed qualification (and 12th/10th). If currently studying, provide latest marksheets and a Bonafide Certificate.</p>
+                </li>
+                <li>
+                    <strong>JLPT/NAT/Other Japanese Proficiency Certificate</strong>
+                    <p>Official certificate of any Japanese language proficiency test passed (e.g., JLPT N5, N4, NAT Q5, Q4). This is a highly valued asset. If results are pending, provide the admit card/registration proof. iTokyo Academy emphasizes the importance of this.</p>
+                </li>
+                <li>
+                    <strong>Japanese Language Study Hours Certificate (from Institute)</strong>
+                    <p>An official certificate from your Japanese language training institute detailing the total number of study hours completed (e.g., 150 hours, 300 hours) and the levels/textbooks covered. iTokyo Academy can provide a sample format if needed.</p>
+                </li>
+                <li>
+                    <strong>Passport Copy (All Pages with Markings)</strong>
+                    <p>High-resolution, color scans of ALL pages of your current passport, including blank ones. Ensure passport is valid for at least 1 year from your intended start date in Japan. Previous passports with travel history (especially to Japan) should also be included if advised by iTokyo Academy.</p>
+                </li>
+                <li>
+                    <strong>Sponsor-Applicant Relationship Proof (Official Documents)</strong>
+                    <p>Legally valid documents clearly establishing the relationship:</p>
+                    <ul>
+                        <li>Parents as sponsor: Your Birth Certificate, Sponsor's Passport/Aadhaar.</li>
+                        <li>Other relatives: A detailed Family Tree Chart (genealogy) supported by relevant birth certificates/official records, and an Affidavit of Support. iTokyo Academy provides templates and guidance for complex cases.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Sponsor's 1-Year Bank Statement (Original/Attested)</strong>
+                    <p>Original or bank-attested statements for the past 12 consecutive months for the primary account showing consistent financial capacity and the required balance. Must clearly show account holder's name, account number, and bank's stamp/seal on every page. iTokyo Academy helps analyze this for red flags.</p>
+                </li>
+                <li>
+                    <strong>Explanation Letter for Large/Recent Deposits (If Applicable)</strong>
+                    <p>Mandatory if any significant deposits (e.g., >2-3 Lakhs INR, or pattern of deposits leading to the required balance) occurred in the sponsor's account, especially in the last 3-6 months. Letter must detail the source of funds with irrefutable documentary evidence (e.g., sale deed, PF withdrawal statement, gift deed from close relative with their financials). iTokyo Academy offers expert assistance in structuring this critical letter.</p>
+                </li>
+                <li>
+                    <strong>Sponsor's Bank Balance Certificate (Original, Recent)</strong>
+                    <p>An original certificate from the sponsor's bank, issued recently (within 1 month of submission), confirming a closing balance of at least 10-12 Lakhs INR (or JPY equivalent as advised by iTokyo Academy). Must be on bank letterhead, signed, and stamped.</p>
+                </li>
+                <li>
+                    <strong>Sponsor's Income Tax Returns (Last 3 Years) & PAN Card</strong>
+                    <p>Complete ITR documents (including computation of income, acknowledgement) for the sponsor for the last three assessment years. Also, a clear copy of the sponsor's PAN card. This demonstrates consistent income. iTokyo Academy verifies completeness.</p>
+                </li>
+                <li>
+                    <strong>Applicant's Name Discrepancy Affidavit (If Applicable)</strong>
+                    <p>If your name (or parents' names) varies across academic certificates, passport, Aadhaar, etc., a notarized affidavit explaining the variations and confirming the correct legal name is required. iTokyo Academy provides standard formats.</p>
+                </li>
+                <li>
+                    <strong>Sponsor's Name Discrepancy Affidavit (If Applicable)</strong>
+                    <p>Similarly, if the sponsor's name has variations across their official documents (ITR, bank, ID proofs), a notarized affidavit is needed. iTokyo Academy ensures this is correctly prepared.</p>
+                </li>
+                <li>
+                    <strong>Applicant's Work Experience Proof (If Any Gap or Relevant)</strong>
+                    <p>If there's a gap between your last education and application, or if your work experience is relevant to your study plan: Appointment letters, experience certificates, salary slips (last 3 months), relieving letters. iTokyo Academy advises on how to best present this to explain study gaps.</p>
+                </li>
+                <li>
+                    <strong>Applicant's Passport-Size Photographs (Specifics by iTokyo Academy)</strong>
+                    <p>Recent (within last 3 months), high-quality, professional photographs.</p>
+                    <ul>
+                        <li>Quantity: 1 Digital Soft Copy (JPEG, high-res), 4-6 Physical Hard Copies.</li>
+                        <li>Specifications: 3cm x 4cm or 3.5cm x 4.5cm (as per latest UNITAS/Embassy guidelines - iTokyo Academy will confirm), plain white background, matte finish, 80% face coverage, no spectacles/headgear (unless religious and clearly shows face).</li>
+                    </ul>
+                </li>
+            </ol>
+            <p class="mt-3"><strong>ATTENTION TO DETAIL IS PARAMOUNT!</strong> This checklist is your bible. Your iTokyo Academy consultant is your ultimate resource for any query. Ensure every document is pristine before final submission through iTokyo Academy.</p>
         </section>
 
-        <section id="faq">
-            <h2><i class="fas fa-comments-dollar section-title-icon" aria-hidden="true"></i><strong class="iTokyo-Academy">iTokyo Academy</strong>'s Expert Answers: Your Top FAQs</h2>
-            <p><strong class="iTokyo-Academy">iTokyo Academy</strong> anticipates your questions. Here are in-depth answers to common queries, ensuring you have complete clarity and confidence throughout your UNITAS application journey.</p>
-            <div class="accordion">
+        <section id="faq" class="container py-5">
+            <h2>iTokyo Academy's Expert Answers: Your Top FAQs</h2>
+            <p>iTokyo Academy anticipates your questions. Here are in-depth answers to common queries, ensuring you have complete clarity and confidence throughout your UNITAS application journey.</p>
+            
+            <div class="accordion" id="faqAccordion">
+                <!-- FUTURE REFINEMENT: Add more FAQs based on common user inquiries. -->
+                <!-- FUTURE REFINEMENT: Consider adding a search/filter for FAQs if the list becomes very long. -->
                 <div class="accordion-item">
-                    <div class="accordion-header"><h4><i class="fas fa-graduation-cap icon" aria-hidden="true"></i>What are the main courses UNITAS offers, and how does <strong class="iTokyo-Academy">iTokyo Academy</strong> help me choose?</h4><i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i></div>
-                    <div class="accordion-content"><div class="accordion-content-inner">
-                        <p>UNITAS offers several courses including:
+                    <h3 class="accordion-header" id="faqHeading1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                            What are the main courses UNITAS offers, and how does iTokyo Academy help me choose?
+                        </button>
+                    </h3>
+                    <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>UNITAS offers several courses including:</p>
                             <ul>
-                                <li><strong>General Japanese Course:</strong> For all-round language development.</li>
-                                <li><strong>University Preparatory Course:</strong> For students aiming for higher education in Japan (EJU focus).</li>
-                                <li><strong>Business Japanese Course:</strong> For those targeting a career in Japan.</li>
-                                <li><strong>Short-Term Courses:</strong> For flexible study options.</li>
+                                <li>General Japanese Course: For all-round language development.</li>
+                                <li>University Preparatory Course: For students aiming for higher education in Japan (EJU focus).</li>
+                                <li>Business Japanese Course: For those targeting a career in Japan.</li>
+                                <li>Short-Term Courses: For flexible study options.</li>
                             </ul>
-                        <strong class="iTokyo-Academy">iTokyo Academy</strong> will discuss your academic background, career goals, and Japanese level to recommend the most suitable course at UNITAS for you.</p>
-                    </div></div>
+                            <p>iTokyo Academy will discuss your academic background, career goals, and Japanese level to recommend the most suitable course at UNITAS for you.</p>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="accordion-item">
-                    <div class="accordion-header"><h4><i class="fas fa-user-check icon" aria-hidden="true"></i>What are the general eligibility criteria for UNITAS, as advised by <strong class="iTokyo-Academy">iTokyo Academy</strong>?</h4><i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i></div>
-                    <div class="accordion-content"><div class="accordion-content-inner">
-                        <p>Key eligibility criteria include:
+                    <h3 class="accordion-header" id="faqHeading2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                            What are the general eligibility criteria for UNITAS, as advised by iTokyo Academy?
+                        </button>
+                    </h3>
+                    <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>Key eligibility criteria include:</p>
                             <ul>
                                 <li>Completion of at least 12 years of formal schooling in your home country.</li>
                                 <li>Being 18 years of age or older at the time of visa application (or having a guardian in Japan).</li>
                                 <li>Demonstrating genuine intent to study Japanese.</li>
                                 <li>Meeting the financial sponsorship requirements (see our Procedure and Checklist sections).</li>
                             </ul>
-                        <strong class="iTokyo-Academy">iTokyo Academy</strong> will assess your specific profile against these requirements during your initial consultation.</p>
-                    </div></div>
+                            <p>iTokyo Academy will assess your specific profile against these requirements during your initial consultation.</p>
+                        </div>
+                    </div>
                 </div>
-                 <div class="accordion-item">
-                    <div class="accordion-header"><h4><i class="fas fa-money-check-alt icon" aria-hidden="true"></i>Can <strong class="iTokyo-Academy">iTokyo Academy</strong> explain the sponsor requirements in detail?</h4><i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i></div>
-                    <div class="accordion-content"><div class="accordion-content-inner">
-                        <p>Absolutely. A financially stable sponsor is critical for your visa. <strong class="iTokyo-Academy">iTokyo Academy</strong> confirms that sponsors typically need:
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faqHeading3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                            Can iTokyo Academy explain the sponsor requirements in detail?
+                        </button>
+                    </h3>
+                    <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>Absolutely. A financially stable sponsor is critical for your visa. iTokyo Academy confirms that sponsors typically need:</p>
                             <ul>
                                 <li>To be a direct family member (parents, spouse, siblings) or a verifiable blood relative. Self-sponsorship is also possible.</li>
                                 <li>Verifiable monthly income exceeding 1 Lakh INR.</li>
                                 <li>Recent Income Tax Return (ITR) filings showing an annual income of over 10 Lakhs INR.</li>
                                 <li>A readily available bank balance of over 10 Lakhs INR, clearly documented for at least the past 3-6 months, with source of funds for any large recent deposits.</li>
                             </ul>
-                        Our team will guide your sponsor in preparing these documents perfectly. The detailed requirements are also listed in our "Procedure" section.</p>
-                    </div></div>
+                            <p>Our team will guide your sponsor in preparing these documents perfectly. The detailed requirements are also listed in our "Procedure" section.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header"><h4><i class="fas fa-passport icon" aria-hidden="true"></i>How does <strong class="iTokyo-Academy">iTokyo Academy</strong> support me with the visa process?</h4><i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i></div>
-                    <div class="accordion-content"><div class="accordion-content-inner">
-                        <p><strong class="iTokyo-Academy">iTokyo Academy</strong> provides comprehensive visa support. After UNITAS accepts your application and assists in obtaining your Certificate of Eligibility (CoE) from Japanese immigration, we guide you meticulously in:
+
+                 <div class="accordion-item">
+                    <h3 class="accordion-header" id="faqHeading4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                            How does iTokyo Academy support me with the visa process?
+                        </button>
+                    </h3>
+                    <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>iTokyo Academy provides comprehensive visa support. After UNITAS accepts your application and assists in obtaining your Certificate of Eligibility (CoE) from Japanese immigration, we guide you meticulously in:</p>
                             <ul>
                                 <li>Preparing all necessary documents for the visa application at the Japanese Embassy/Consulate in India.</li>
                                 <li>Filling out the visa application form accurately.</li>
                                 <li>Preparing for any potential visa interview questions.</li>
                                 <li>Ensuring all submissions are timely and meet the embassy's precise requirements.</li>
                             </ul>
-                        Our goal is to maximize your chances of visa approval.</p>
-                    </div></div>
+                            <p>Our goal is to maximize your chances of visa approval.</p>
+                        </div>
+                    </div>
                 </div>
-                 <div class="accordion-item">
-                    <div class="accordion-header"><h4><i class="fas fa-home icon" aria-hidden="true"></i>Does <strong class="iTokyo-Academy">iTokyo Academy</strong> assist with finding accommodation in Japan?</h4><i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i></div>
-                    <div class="accordion-content"><div class="accordion-content-inner">
-                        <p>Yes, we do. UNITAS offers various accommodation options like student dormitories or can provide information on finding private apartments. Once your admission is confirmed, <strong class="iTokyo-Academy">iTokyo Academy</strong> will:
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faqHeading5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+                            Does iTokyo Academy assist with finding accommodation in Japan?
+                        </button>
+                    </h3>
+                    <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>Yes, we do. UNITAS offers various accommodation options like student dormitories or can provide information on finding private apartments. Once your admission is confirmed, iTokyo Academy will:</p>
                             <ul>
                                 <li>Share the available accommodation options with you.</li>
                                 <li>Explain the features, costs, and application process for each.</li>
                                 <li>Assist you in selecting and applying for your preferred accommodation, ensuring you have a comfortable place to stay upon arrival.</li>
                             </ul>
-                        </p>
-                    </div></div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="accordion-item">
-                    <div class="accordion-header"><h4><i class="fas fa-user-clock icon" aria-hidden="true"></i>What kind of part-time work is available, and what are the rules?</h4><i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i></div>
-                    <div class="accordion-content"><div class="accordion-content-inner">
-                        <p>As a student visa holder in Japan, you can apply for a work permit ("Permission to Engage in Activity Other Than That Permitted by the Status of Residence Previously Granted"). This allows you to work:
+                    <h3 class="accordion-header" id="faqHeading6">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
+                            What kind of part-time work is available, and what are the rules?
+                        </button>
+                    </h3>
+                    <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faqHeading6" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>As a student visa holder in Japan, you can apply for a work permit ("Permission to Engage in Activity Other Than That Permitted by the Status of Residence Previously Granted"). This allows you to work:</p>
                             <ul>
                                 <li>Up to 28 hours per week during school terms.</li>
                                 <li>Up to 40 hours per week (8 hours a day) during long school vacations.</li>
                             </ul>
-                        Common part-time jobs include roles in restaurants, convenience stores, teaching your native language, etc. <strong class="iTokyo-Academy">iTokyo Academy</strong> and UNITAS provide general guidance on job searching and understanding work regulations. Your Japanese proficiency will significantly impact job opportunities.</p>
-                    </div></div>
+                            <p>Common part-time jobs include roles in restaurants, convenience stores, teaching your native language, etc. iTokyo Academy and UNITAS provide general guidance on job searching and understanding work regulations. Your Japanese proficiency will significantly impact job opportunities.</p>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="accordion-item">
-                    <div class="accordion-header"><h4><i class="fas fa-calendar-alt icon" aria-hidden="true"></i>What are the intake periods and application deadlines for UNITAS?</h4><i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i></div>
-                    <div class="accordion-content"><div class="accordion-content-inner">
-                        <p>UNITAS generally has four main intake periods for long-term courses:
+                    <h3 class="accordion-header" id="faqHeading7">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse7" aria-expanded="false" aria-controls="faqCollapse7">
+                            What are the intake periods and application deadlines for UNITAS?
+                        </button>
+                    </h3>
+                    <div id="faqCollapse7" class="accordion-collapse collapse" aria-labelledby="faqHeading7" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>UNITAS generally has four main intake periods for long-term courses:</p>
                             <ul>
-                                <li><strong>April Term:</strong> Application deadline usually by end of October of the previous year.</li>
-                                <li><strong>July Term:</strong> Application deadline usually by end of February.</li>
-                                <li><strong>October Term:</strong> Application deadline usually by end of April.</li>
-                                <li><strong>January Term:</strong> Application deadline usually by end of August of the previous year.</li>
+                                <li>April Term: Application deadline usually by end of October of the previous year.</li>
+                                <li>July Term: Application deadline usually by end of February.</li>
+                                <li>October Term: Application deadline usually by end of April.</li>
+                                <li>January Term: Application deadline usually by end of August of the previous year.</li>
                             </ul>
-                        <strong class="iTokyo-Academy">iTokyo Academy</strong> strongly advises starting your application process well in advance of these deadlines. Contact us for the most current and specific deadline information for your desired intake.</p>
-                    </div></div>
+                            <p>iTokyo Academy strongly advises starting your application process well in advance of these deadlines. Contact us for the most current and specific deadline information for your desired intake.</p>
+                        </div>
+                    </div>
                 </div>
-                 <div class="accordion-item">
-                    <div class="accordion-header"><h4><i class="fas fa-check-double icon" aria-hidden="true"></i>What makes <strong class="iTokyo-Academy">iTokyo Academy</strong> the best choice for my UNITAS application?</h4><i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i></div>
-                    <div class="accordion-content"><div class="accordion-content-inner">
-                        <p><strong class="iTokyo-Academy">iTokyo Academy</strong> is more than just a consultancy; we are your dedicated partners. We offer:
+                
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faqHeading8">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse8" aria-expanded="false" aria-controls="faqCollapse8">
+                            What makes iTokyo Academy the best choice for my UNITAS application?
+                        </button>
+                    </h3>
+                    <div id="faqCollapse8" class="accordion-collapse collapse" aria-labelledby="faqHeading8" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>iTokyo Academy is more than just a consultancy; we are your dedicated partners. We offer:</p>
                             <ul>
-                                <li><strong>Unparalleled Expertise:</strong> Deep understanding of UNITAS, Japanese immigration, and the specific needs of Indian students.</li>
-                                <li><strong>Personalized Approach:</strong> We tailor our services to your individual profile and goals.</li>
-                                <li><strong>Transparency & Ethics:</strong> Clear communication and honest advice throughout the process.</li>
-                                <li><strong>High Success Rate:</strong> Our meticulous approach significantly enhances your chances of admission and visa approval.</li>
-                                <li><strong>End-to-End Support:</strong> From your first inquiry to pre-departure preparations, we are with you every step of the way. This comprehensive guide itself is a testament to our commitment.</li>
+                                <li>Unparalleled Expertise: Deep understanding of UNITAS, Japanese immigration, and the specific needs of Indian students.</li>
+                                <li>Personalized Approach: We tailor our services to your individual profile and goals.</li>
+                                <li>Transparency & Ethics: Clear communication and honest advice throughout the process.</li>
+                                <li>High Success Rate: Our meticulous approach significantly enhances your chances of admission and visa approval.</li>
+                                <li>End-to-End Support: From your first inquiry to pre-departure preparations, we are with you every step of the way. This comprehensive guide itself is a testament to our commitment.</li>
                             </ul>
-                        </p>
-                    </div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+    </main>
 
-    </div>
-
-    <a href="#" id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    </a>
-
-    <footer>
-        <p class="footer-brand">This Definitive Application Masterclass is © 2024-2025 <span class="academy">iTokyo Academy</span>. All Rights Reserved.</p>
-        <p>Meticulously Engineered & Proudly Delivered by <a href="https://itokyoacademy.com" target="_blank" rel="noopener noreferrer">itokyoacademy.com</a> – Your Premier Partner for UNITAS Japan.</p>
-        <p class="footer-contact"><strong>Contact iTokyo Academy:</strong> <a href="tel:9942993900"><i class="fas fa-phone-alt"></i> 9942993900</a> | <a href="mailto:unitasadmission@itokyoacademy.com"><i class="fas fa-envelope"></i> unitasadmission@itokyoacademy.com</a></p>
-        <p>Your ambition is our blueprint for success at <strong class="iTokyo-Academy">iTokyo Academy</strong>. This guide serves as a comprehensive resource; always confirm specific details with your dedicated <strong class="iTokyo-Academy">iTokyo Academy</strong> consultant.</p>
+    <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container text-center">
+            <!-- FUTURE REFINEMENT: Ensure copyright year is dynamic or updated regularly. -->
+            <p>This Definitive Application Masterclass is © 2024-2025 iTokyo Academy. All Rights Reserved.</p>
+            <p>Meticulously Engineered & Proudly Delivered by <a href="https://itokyoacademy.com/" class="text-white">itokyoacademy.com</a> – Your Premier Partner for UNITAS Japan.</p>
+            <p>Contact iTokyo Academy: <a href="tel:9942993900" class="text-white">9942993900</a> | <a href="mailto:unitasadmission@itokyoacademy.com" class="text-white">unitasadmission@itokyoacademy.com</a></p>
+            <p>Your ambition is our blueprint for success at iTokyo Academy. This guide serves as a comprehensive resource; always confirm specific details with your dedicated iTokyo Academy consultant.</p>
+            <!-- FUTURE REFINEMENT: Add social media links if available. -->
+        </div>
     </footer>
 
-    <script>
-        // Accordion functionality
-        const accordionItems = document.querySelectorAll('.accordion-item');
-        let uniqueIdCounter = 0; // To generate unique IDs
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 
-        // Initialize accordions with accessibility attributes
-        accordionItems.forEach(item => {
-            const header = item.querySelector('.accordion-header');
-            const content = item.querySelector('.accordion-content');
-            const contentInner = content.querySelector('.accordion-content-inner');
-
-            const contentId = `accordion-content-${uniqueIdCounter}`;
-            content.setAttribute('id', contentId);
-            header.setAttribute('aria-controls', contentId);
-            header.setAttribute('aria-expanded', 'false');
-
-            if (header.tagName.toLowerCase() !== 'button') {
-                header.setAttribute('role', 'button');
-                header.setAttribute('tabindex', '0');
-            }
-            uniqueIdCounter++;
-
-            header.addEventListener('click', () => {
-                toggleAccordionItem(item, header, content, contentInner);
-            });
-
-            header.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    toggleAccordionItem(item, header, content, contentInner);
-                }
-            });
-        });
-
-        function toggleAccordionItem(currentItem, currentHeader, currentContent, currentContentInner) {
-            const isActive = currentItem.classList.contains('active'); 
-            const parentAccordion = currentItem.closest('.accordion');
-
-            if (parentAccordion) {
-                parentAccordion.querySelectorAll('.accordion-item').forEach(otherItem => {
-                    if (otherItem !== currentItem && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                        otherItem.querySelector('.accordion-content').style.maxHeight = null;
-                        otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
-                    }
-                });
-            }
-
-            currentItem.classList.toggle('active'); 
-            if (currentItem.classList.contains('active')) {
-                currentContent.style.maxHeight = currentContentInner.scrollHeight + "px";
-                currentHeader.setAttribute('aria-expanded', 'true');
-            } else {
-                currentContent.style.maxHeight = null;
-                currentHeader.setAttribute('aria-expanded', 'false');
-            }
-        }
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.getElementById('nav-menu');
-
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('mobile-visible');
-                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-                mobileMenuBtn.innerHTML = isExpanded ? 
-                    '<i class="fas fa-bars" aria-hidden="true"></i>' : 
-                    '<i class="fas fa-times" aria-hidden="true"></i>';
-            });
-        }
-
-        // Navigation highlighting
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('#main-nav ul li a');
-        const navElement = document.getElementById('main-nav');
-        let navHeight = navElement ? navElement.offsetHeight : 70; 
-
-        function updateNavHeight() {
-            if (navElement) {
-                navHeight = navElement.offsetHeight;
-            }
-        }
-        
-        window.addEventListener('load', updateNavHeight);
-        window.addEventListener('resize', updateNavHeight);
-
-        window.addEventListener('scroll', () => {
-            let currentSectionId = '';
-            let scrollPosition = window.scrollY;
-            
-            if (navElement) { // Ensure navElement exists
-                if (scrollPosition > 50) {
-                    navElement.classList.add('scrolled');
-                } else {
-                    navElement.classList.remove('scrolled');
-                }
-            }
-            
-            const backToTopBtn = document.getElementById('back-to-top');
-            if (backToTopBtn) {
-                if (scrollPosition > 500) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            }
-            
-            let minDistance = Infinity;
-            let activeSectionFound = false;
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                // Consider a section active if its top is within a certain range or if we are scrolling within it
-                if (pageYOffset >= sectionTop - navHeight - (window.innerHeight * 0.2) && 
-                    pageYOffset < sectionTop + sectionHeight - navHeight - (window.innerHeight * 0.2) ) {
-                     currentSectionId = section.getAttribute('id');
-                     activeSectionFound = true;
-                }
-            });
-            
-            if (!activeSectionFound && sections.length > 0) {
-                // If no section is actively in view by the above logic (e.g., scrolled past all or before the first one starts)
-                // Default to the one closest to the top of the viewport or the first one if at the very top.
-                if (pageYOffset < (sections[0].offsetTop - navHeight)) {
-                    currentSectionId = sections[0].getAttribute('id');
-                } else {
-                    // Find the section whose top is closest to the scroll position + offset
-                    sections.forEach(section => {
-                        const distance = Math.abs(pageYOffset - (section.offsetTop - navHeight - (window.innerHeight * 0.1)));
-                        if (distance < minDistance) {
-                            minDistance = distance;
-                            currentSectionId = section.getAttribute('id');
-                        }
-                    });
-                }
-            }
-
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                const href = link.getAttribute('href');
-                if (href && href.substring(1) === currentSectionId) {
-                    link.classList.add('active');
-                }
-            });
-            
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight * 0.85) { // Adjusted for earlier trigger
-                    section.classList.add('visible');
-                }
-            });
-        });
-
-        window.addEventListener('load', () => {
-            updateNavHeight(); 
-            window.dispatchEvent(new Event('scroll'));
-
-            if (window.location.hash) {
-                const hashId = window.location.hash.substring(1);
-                navLinks.forEach(link => {
-                    link.classList.remove('active'); 
-                    if (link.getAttribute('href').substring(1) === hashId) {
-                        link.classList.add('active');
-                    }
-                });
-                
-                const targetSection = document.getElementById(hashId);
-                if (targetSection) {
-                    setTimeout(() => {
-                        window.scrollTo({
-                            top: targetSection.offsetTop - navHeight - 20, // Adjusted offset
-                            behavior: 'smooth'
-                        });
-                    }, 100);
-                }
-            } else if (sections.length > 0) { 
-                if (pageYOffset < 50 && navLinks.length > 0) { 
-                    navLinks.forEach(l => l.classList.remove('active')); 
-                    navLinks[0].classList.add('active'); 
-                } else {
-                     window.dispatchEvent(new Event('scroll')); 
-                }
-            }
-            
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight * 0.85) { // Adjusted for earlier trigger
-                    section.classList.add('visible');
-                }
-            });
-        });
-        
-        const backToTopBtn = document.getElementById('back-to-top');
-        if (backToTopBtn) {
-            backToTopBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    
-                    if (navMenu && navMenu.classList.contains('mobile-visible')) {
-                        navMenu.classList.remove('mobile-visible');
-                         if (mobileMenuBtn) { // Check if mobileMenuBtn exists
-                            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                            mobileMenuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-                        }
-                    }
-                    
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        // Recalculate navHeight just before scroll, as it might change if nav becomes 'scrolled'
-                        updateNavHeight(); 
-                        window.scrollTo({
-                            top: targetElement.offsetTop - navHeight - 20, // Adjusted offset
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            document.body.classList.add('loaded'); // For potential global load animations
-            // Ensure sections visible on load are animated in
-            window.dispatchEvent(new Event('scroll'));
-        });
-
-    </script>
-
+    <a href="#" id="scrollToTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-3" title="Go to top" aria-label="Go to top">
+        <i class="bi bi-arrow-up-circle-fill"></i>
+    </a>
 </body>
 </html>
